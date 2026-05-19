@@ -193,41 +193,17 @@ function initAutoHideHeader() {
     return;
   }
 
-  let lastScrollY = window.scrollY;
   let ticking = false;
 
   const updateHeaderState = () => {
     const currentScrollY = window.scrollY;
-    const delta = currentScrollY - lastScrollY;
 
     header.classList.toggle('header-scrolled', currentScrollY > 10);
 
-    if (mediaQueryMobile.matches && navLinks?.classList.contains('open')) {
-      lastScrollY = currentScrollY;
-      ticking = false;
-      return;
-    }
-
-    if (currentScrollY <= 14) {
-      header.classList.remove('header-hidden');
-      lastScrollY = currentScrollY;
-      ticking = false;
-      return;
-    }
-
-    if (Math.abs(delta) < 8) {
-      ticking = false;
-      return;
-    }
-
-    if (delta > 0) {
-      header.classList.add('header-hidden');
+    if (mediaQueryMobile.matches && navLinks?.classList.contains('open') && currentScrollY > 10) {
       closeNavMenu();
-    } else {
-      header.classList.remove('header-hidden');
     }
 
-    lastScrollY = currentScrollY;
     ticking = false;
   };
 
@@ -243,9 +219,75 @@ function initAutoHideHeader() {
   );
 }
 
+function initAmbientMotion() {
+  if (prefersReducedMotion) {
+    return;
+  }
+
+  const motionSurfaces = Array.from(
+    document.querySelectorAll(
+      [
+        '.hero-visual',
+        '.page-banner',
+        '.filters-card',
+        '.package-browser-card',
+        '.details-banner',
+        '.details-card',
+        '.content-card',
+        '.destination-card',
+        '.package-showcase-card',
+        '.benefit',
+        '.testimonial',
+        '.booking-cta',
+        '.final-cta-wrap',
+        '.road-lane',
+        '.moments-carousel'
+      ].join(',')
+    )
+  );
+
+  if (!motionSurfaces.length) {
+    return;
+  }
+
+  let rafId = 0;
+
+  const update = () => {
+    const viewportHeight = window.innerHeight || 1;
+    const viewportWidth = window.innerWidth || 1;
+
+    motionSurfaces.forEach((surface, index) => {
+      const rect = surface.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const vertical = Math.max(-1, Math.min(1, (viewportHeight * 0.5 - centerY) / viewportHeight));
+      const horizontal = Math.max(-1, Math.min(1, (viewportWidth * 0.5 - centerX) / viewportWidth));
+      const direction = index % 2 === 0 ? 1 : -1;
+
+      surface.style.setProperty('--ambient-x', `${(horizontal * 22 * direction).toFixed(2)}px`);
+      surface.style.setProperty('--ambient-y', `${(vertical * 16).toFixed(2)}px`);
+      surface.style.setProperty('--ambient-o', `${(0.12 + Math.abs(vertical) * 0.16).toFixed(2)}`);
+    });
+
+    rafId = 0;
+  };
+
+  const scheduleUpdate = () => {
+    if (!rafId) {
+      rafId = window.requestAnimationFrame(update);
+    }
+  };
+
+  window.addEventListener('scroll', scheduleUpdate, { passive: true });
+  window.addEventListener('resize', scheduleUpdate);
+  window.addEventListener('load', scheduleUpdate);
+  scheduleUpdate();
+}
+
 window.observeRevealElements = observeRevealElements;
 observeRevealElements();
 initBookingPackagePrefill();
 initLeaveReviewForm();
 initEmailForms();
 initAutoHideHeader();
+initAmbientMotion();

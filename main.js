@@ -7,8 +7,7 @@ const PACKAGE_DATA = [
     durationType: 'day',
     price: 1799,
     priceLabel: 'PHP 1,799 / pax',
-    image:
-      'https://images.unsplash.com/photo-1588416499018-1a2527c5c65d?auto=format&fit=crop&w=1400&q=80',
+    image: 'assets/images/destinations/baguio-burnham.png',
     shortDescription:
       'A relaxed city route covering Baguio landmarks, parks, and food stops perfect for first-time visitors.',
     fullDescription:
@@ -54,8 +53,7 @@ const PACKAGE_DATA = [
     durationType: 'day',
     price: 2399,
     priceLabel: 'PHP 2,399 / pax',
-    image:
-      'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=80',
+    image: 'assets/images/destinations/atok-flower-mountain.png',
     shortDescription:
       'Highland day trip featuring sea-of-clouds viewpoints, flower farms, and cool mountain landscapes.',
     fullDescription:
@@ -100,8 +98,7 @@ const PACKAGE_DATA = [
     durationType: '2d1n',
     price: 4899,
     priceLabel: 'PHP 4,899 / pax',
-    image:
-      'https://images.unsplash.com/photo-1630910895377-0bc7d5f96f80?auto=format&fit=crop&w=1400&q=80',
+    image: 'assets/images/destinations/sagada-sea-of-clouds.png',
     shortDescription:
       'A culture and nature escape with caves, viewpoints, and local community experiences in Sagada.',
     fullDescription:
@@ -242,7 +239,177 @@ const REVIEW_DATA = [
     packageName: 'Kielan Travels Travel and Tours',
     message:
       'Sulit! Friendly drivers, comfy and clean vans, smooth transaction, and looking forward to travel with you again with new destinations!',
-    dateLabel: 'Facebook Review • Recent',
+    dateLabel: 'Facebook Recommendation • May 13, 2026',
+    status: 'approved'
+  },
+  {
+    fullName: 'Celestial Cago',
+    rating: 5,
+    packageName: 'Kielan Travels Travel and Tours',
+    message: 'Highly recommended, quality service.',
+    dateLabel: 'Facebook Recommendation • February 19, 2026',
+    status: 'approved'
+  },
+  {
+    fullName: 'Sheen Irish Badio',
+    rating: 5,
+    packageName: 'Sagada Tour',
+    message:
+      '10/10, highly recommended! Our Sagada trip was super fun. Massive thanks to our driver Kuya Jeboni and our guides Kuya Ezra, Kuya Arnel, and Ate Lorna for the smooth, safe, and unforgettable experience.',
+    dateLabel: 'Facebook Recommendation • February 17, 2026',
+    status: 'approved'
+  },
+  {
+    fullName: 'Kën Cäsülla',
+    rating: 5,
+    packageName: 'Sagada Tour',
+    message:
+      'Valentines trip in Sagada was made possible by Kielan Travels. Friendly and informative guides, safe drop-off, and very protective team support during our trip.',
+    dateLabel: 'Facebook Recommendation • February 17, 2026',
+    status: 'approved'
+  },
+  {
+    fullName: 'AnNe LM',
+    rating: 5,
+    packageName: 'Sagada Tour',
+    message:
+      'We had an amazing time on our Sagada tour. The team was very accommodating and made every destination memorable, from the caves to the sunrise views.',
+    dateLabel: 'Facebook Recommendation • January 25, 2026',
+    status: 'approved'
+  },
+  {
+    fullName: 'The Tara Diaries',
+    rating: 5,
+    packageName: 'Sagada Tour',
+    message:
+      'Heartfelt thanks to Kielan Travels for our Sagada-Buscalan-Baguio adventure. Great guides, very safe driver, and a smooth trip all throughout.',
+    dateLabel: 'Facebook Recommendation • January 6, 2026',
+    status: 'approved'
+  },
+  {
+    fullName: 'Mabel Reyes Linco',
+    rating: 5,
+    packageName: 'Sagada Tour',
+    message:
+      'First time in Sagada and we had a great experience. Kudos to driver Jeboni and guide Omnada. Highly recommended.',
+    dateLabel: 'Facebook Recommendation • January 6, 2026',
+    status: 'approved'
+  },
+  {
+    fullName: 'Sak En Na Gnewamo',
+    rating: 5,
+    packageName: 'Kielan Travels Travel and Tours',
+    message:
+      'Legit agency staff and guides. They remind guests before the tour starts, and they are cool, friendly, and motivating on challenging tour days.',
+    dateLabel: 'Facebook Recommendation • December 21, 2025',
+    status: 'approved'
+  },
+  {
+    fullName: 'Samantha Balite Lauron',
+    rating: 5,
+    packageName: 'Kielan Travels Travel and Tours',
+    message:
+      'Thank you Kielan Travels team, especially Kuya Marlon and Kuya Meliton, plus our tour guide. Very accommodating and highly recommended.',
+    dateLabel: 'Facebook Recommendation • December 2, 2025',
+    status: 'approved'
+  },
+  {
+    fullName: 'Ladyann Layug',
+    rating: 5,
+    packageName: 'Kielan Travels Travel and Tours',
+    message:
+      'Kudos to the team for being patient and hassle-free. The service was excellent and we felt safe and comfortable throughout the trip.',
+    dateLabel: 'Facebook Recommendation • November 24, 2025',
+    status: 'approved'
+  },
+  {
+    fullName: 'Dianne Pentecostes',
+    rating: 5,
+    packageName: 'Banaue / Batad Tour',
+    message:
+      'Worry-free and fun trip covering Banaue, Sagada, and Baguio. Friendly driver, warm guides, and very informative sharing during the tour.',
+    dateLabel: 'Facebook Recommendation • May 19, 2025',
+    status: 'approved'
+  },
+  {
+    fullName: 'Vangie Polgab',
+    rating: 5,
+    packageName: 'Kielan Travels Travel and Tours',
+    message:
+      'Very accommodating staff, friendly driver, and entertaining tour guides who kept us safe during our adventures. Legit agency.',
+    dateLabel: 'Facebook Recommendation • May 18, 2025',
+    status: 'approved'
+  },
+  {
+    fullName: 'Tara Maria',
+    rating: 5,
+    packageName: 'Sagada Tour',
+    message:
+      'Excellent services and superb experiences. Hassle-free accommodation, capable and funny tour guides, and a very safe and skilled driver.',
+    dateLabel: 'Facebook Recommendation • May 5, 2025',
+    status: 'approved'
+  },
+  {
+    fullName: 'Arlvira Rovi',
+    rating: 5,
+    packageName: 'Kielan Travels Travel and Tours',
+    message:
+      'Very affordable for hassle-free travel. Helpful and energetic guides, very capable driver, and consistent support from the team.',
+    dateLabel: 'Facebook Recommendation • May 5, 2025',
+    status: 'approved'
+  },
+  {
+    fullName: 'Eugene Carlos Paragas',
+    rating: 5,
+    packageName: 'Kielan Travels Travel and Tours',
+    message:
+      'Very accommodating, affordable price, and looking forward to having my next tour with them.',
+    dateLabel: 'Facebook Recommendation • March 8, 2020',
+    status: 'approved'
+  },
+  {
+    fullName: 'Sheryl Micu Valencia',
+    rating: 5,
+    packageName: 'Minalungao Tour',
+    message:
+      'First-time joiner for Minalungao and we had a great trip. Thanks to the driver and local tour guide for being very accommodating.',
+    dateLabel: 'Facebook Recommendation • March 2, 2020',
+    status: 'approved'
+  },
+  {
+    fullName: 'Marriane Claire Lopez',
+    rating: 5,
+    packageName: 'Dingalan Day Tour',
+    message:
+      'Wonderful and fulfilling Dingalan day tour. Kind and accommodating team, and we will surely book again for our next tour.',
+    dateLabel: 'Facebook Recommendation • March 1, 2020',
+    status: 'approved'
+  },
+  {
+    fullName: 'So Gaile',
+    rating: 5,
+    packageName: 'Baguio City Tour',
+    message:
+      'One of the most convenient and stress-free Baguio day tours we have had. Very honest and helpful guide, smooth trip, and very affordable rates.',
+    dateLabel: 'Facebook Recommendation • February 28, 2020',
+    status: 'approved'
+  },
+  {
+    fullName: 'Rose May',
+    rating: 5,
+    packageName: 'Ilocos Tour',
+    message:
+      'Thank you Kielan Travels. Our unforgettable Ilocos tour was made possible despite last-minute booking, and it stayed affordable.',
+    dateLabel: 'Facebook Recommendation • February 16, 2020',
+    status: 'approved'
+  },
+  {
+    fullName: 'Fely Dongpoen',
+    rating: 5,
+    packageName: 'Sagada Day Tour',
+    message:
+      'Kielan Travels was very accommodating during our Sagada day tour despite our group concerns. Enjoyed the stories from Kuya Carlysk and the helpful support of the team.',
+    dateLabel: 'Facebook Recommendation • October 5, 2019',
     status: 'approved'
   }
 ];
@@ -268,19 +435,120 @@ function renderStars(rating) {
   return '★'.repeat(rating) + '☆'.repeat(5 - rating);
 }
 
-function getApprovedReviews(packageId) {
-  return REVIEW_DATA.filter((review) => review.status === 'approved')
-    .filter((review) => !packageId || review.packageId === packageId);
+function getApprovedReviews() {
+  return REVIEW_DATA.filter((review) => review.status === 'approved');
+}
+
+function chunkItems(items, size) {
+  const groups = [];
+  for (let index = 0; index < items.length; index += size) {
+    groups.push(items.slice(index, index + size));
+  }
+  return groups;
+}
+
+function buildReviewCardMarkup(review, useRevealClass = true) {
+  return `
+    <article class="testimonial review-card${useRevealClass ? ' reveal' : ''}">
+      <header class="review-head">
+        <h3>${escapeHtml(review.fullName)}</h3>
+        <span class="review-rating" aria-label="${review.rating} out of 5 stars">${renderStars(review.rating)}</span>
+      </header>
+      <p>${escapeHtml(review.message)}</p>
+      <footer class="review-meta">
+        <span>${escapeHtml(review.packageName)}</span>
+        <span>${escapeHtml(review.dateLabel)}</span>
+      </footer>
+    </article>
+  `;
+}
+
+function initReviewCarousel(carousel) {
+  if (!carousel) {
+    return;
+  }
+
+  const viewport = carousel.querySelector('[data-review-viewport]');
+  const track = carousel.querySelector('[data-review-track]');
+  const slides = Array.from(carousel.querySelectorAll('[data-review-slide]'));
+  const prevButton = carousel.querySelector('[data-review-prev]');
+  const nextButton = carousel.querySelector('[data-review-next]');
+  const dots = Array.from(carousel.querySelectorAll('[data-review-dot]'));
+
+  if (!viewport || !track || !slides.length) {
+    return;
+  }
+
+  let activeIndex = 0;
+  let touchStartX = 0;
+  let touchDeltaX = 0;
+
+  const renderSlide = (index) => {
+    activeIndex = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${activeIndex * 100}%)`;
+
+    slides.forEach((slide, slideIndex) => {
+      const isActive = slideIndex === activeIndex;
+      slide.classList.toggle('is-active', isActive);
+      slide.setAttribute('aria-hidden', String(!isActive));
+    });
+
+    dots.forEach((dot, dotIndex) => {
+      const isActive = dotIndex === activeIndex;
+      dot.classList.toggle('is-active', isActive);
+      dot.setAttribute('aria-selected', String(isActive));
+    });
+  };
+
+  if (slides.length > 1) {
+    prevButton?.addEventListener('click', () => renderSlide(activeIndex - 1));
+    nextButton?.addEventListener('click', () => renderSlide(activeIndex + 1));
+
+    dots.forEach((dot, dotIndex) => {
+      dot.addEventListener('click', () => renderSlide(dotIndex));
+    });
+
+    viewport.addEventListener('touchstart', (event) => {
+      touchStartX = event.changedTouches[0].clientX;
+      touchDeltaX = 0;
+    }, { passive: true });
+
+    viewport.addEventListener('touchmove', (event) => {
+      touchDeltaX = event.changedTouches[0].clientX - touchStartX;
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', () => {
+      if (Math.abs(touchDeltaX) < 36) {
+        return;
+      }
+      if (touchDeltaX < 0) {
+        renderSlide(activeIndex + 1);
+        return;
+      }
+      renderSlide(activeIndex - 1);
+    });
+
+    carousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') {
+        renderSlide(activeIndex + 1);
+      }
+      if (event.key === 'ArrowLeft') {
+        renderSlide(activeIndex - 1);
+      }
+    });
+  }
+
+  renderSlide(0);
 }
 
 function renderReviewCards(targetSelector, options = {}) {
-  const { limit, packageId } = options;
+  const { limit, carousel = false, perSlide = 3 } = options;
   const target = document.querySelector(targetSelector);
   if (!target) {
     return;
   }
 
-  const approvedReviews = getApprovedReviews(packageId);
+  const approvedReviews = getApprovedReviews();
   const items = typeof limit === 'number' ? approvedReviews.slice(0, limit) : approvedReviews;
 
   if (!items.length) {
@@ -293,22 +561,53 @@ function renderReviewCards(targetSelector, options = {}) {
     return;
   }
 
+  if (carousel) {
+    const slideSize = Math.max(1, Number(perSlide) || 3);
+    const reviewGroups = chunkItems(items, slideSize);
+
+    target.classList.add('review-carousel-host');
+    target.classList.remove('grid', 'cards-3');
+
+    target.innerHTML = `
+      <div class="review-carousel" data-review-carousel tabindex="0" aria-label="Traveler review carousel">
+        <div class="review-viewport" data-review-viewport>
+          <div class="review-track" data-review-track>
+            ${reviewGroups
+              .map(
+                (group, slideIndex) => `
+                  <section class="review-slide${slideIndex === 0 ? ' is-active' : ''}" data-review-slide role="group" aria-label="Slide ${slideIndex + 1} of ${reviewGroups.length}">
+                    ${group.map((review) => buildReviewCardMarkup(review, false)).join('')}
+                  </section>
+                `
+              )
+              .join('')}
+          </div>
+        </div>
+        ${reviewGroups.length > 1 ? `
+          <button class="review-control review-prev" type="button" aria-label="Previous reviews" data-review-prev>‹</button>
+          <button class="review-control review-next" type="button" aria-label="Next reviews" data-review-next>›</button>
+          <div class="review-dots" role="tablist" aria-label="Review slide controls">
+            ${reviewGroups
+              .map(
+                (_, dotIndex) => `
+                  <button class="review-dot${dotIndex === 0 ? ' is-active' : ''}" type="button" aria-label="Show review slide ${dotIndex + 1}" aria-selected="${dotIndex === 0}" data-review-dot="${dotIndex}"></button>
+                `
+              )
+              .join('')}
+          </div>
+        ` : ''}
+      </div>
+    `;
+
+    initReviewCarousel(target.querySelector('[data-review-carousel]'));
+    return;
+  }
+
+  target.classList.remove('review-carousel-host');
+  target.classList.add('grid', 'cards-3');
+
   target.innerHTML = items
-    .map(
-      (review) => `
-      <article class="testimonial review-card reveal">
-        <header class="review-head">
-          <h3>${escapeHtml(review.fullName)}</h3>
-          <span class="review-rating" aria-label="${review.rating} out of 5 stars">${renderStars(review.rating)}</span>
-        </header>
-        <p>${escapeHtml(review.message)}</p>
-        <footer class="review-meta">
-          <span>${escapeHtml(review.packageName)}</span>
-          <span>${escapeHtml(review.dateLabel)}</span>
-        </footer>
-      </article>
-    `
-    )
+    .map((review) => buildReviewCardMarkup(review))
     .join('');
 
   if (typeof window.observeRevealElements === 'function') {
@@ -540,7 +839,7 @@ function renderPackageDetails() {
 
   document.title = `${selectedPackage.title} | Kielan Travels`;
   root.innerHTML = buildDetailsSection(selectedPackage);
-  renderReviewCards('#package-review-grid', { packageId: selectedPackage.id, limit: 3 });
+  renderReviewCards('#package-review-grid', { limit: 3 });
 
   if (typeof window.observeRevealElements === 'function') {
     window.observeRevealElements();
@@ -618,8 +917,8 @@ function initFeaturedMomentsCarousel() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initPackageFilters();
-  renderReviewCards('#home-reviews-grid', { limit: 3 });
-  renderReviewCards('#approved-reviews-grid', { limit: 6 });
+  renderReviewCards('#home-reviews-grid', { carousel: true, perSlide: 3 });
+  renderReviewCards('#approved-reviews-grid', { carousel: true, perSlide: 3 });
   renderPackageDetails();
   initFeaturedMomentsCarousel();
 });
