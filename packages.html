@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packages | Kielan Travels Travel and Tours</title>
+  <meta
+    name="description"
+    content="Browse Kielan Travels package tours from Baguio City to top Northern Luzon destinations."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="home-page">
+  <header class="site-header" id="top">
+    <nav class="navbar container">
+      <a class="brand" href="index.html" aria-label="Kielan Travels homepage">
+        <img src="assets/logo.jpg" alt="Kielan Travels logo" />
+        <div>
+          <strong>Kielan Travels</strong>
+          <span>Travel and Tours</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="packages.html" class="is-active">Packages</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html#featured-moments">Travel Moments</a></li>
+        <li><a href="index.html#testimonials">Testimonials</a></li>
+        <li class="nav-mobile-book"><a href="booking.html" class="btn btn-primary">Book Now</a></li>
+      </ul>
+
+      <a href="booking.html" class="btn btn-primary nav-book-btn">Book Now</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-banner container reveal">
+      <p class="eyebrow">Kielan Tours Collection</p>
+      <h1>Find Your Next Northern Luzon Adventure</h1>
+      <p>
+        Browse curated package tours with route support, transport coordination, and practical
+        trip pacing designed by a Baguio-based travel team.
+      </p>
+    </section>
+
+    <section class="section packages-listing-section">
+      <div class="container">
+        <div class="filters-card reveal">
+          <h2>Filter Packages</h2>
+          <form id="package-filter-form" class="package-filters" aria-label="Filter travel packages">
+            <label>
+              Search
+              <input
+                type="search"
+                id="search-input"
+                placeholder="Search by destination or package name"
+                aria-label="Search travel packages"
+                autocomplete="off"
+              />
+            </label>
+            <label>
+              Destination
+              <select id="location-filter">
+                <option value="all">All destinations</option>
+              </select>
+            </label>
+            <label>
+              Duration
+              <select id="duration-filter">
+                <option value="all">All durations</option>
+                <option value="day">Day Tour</option>
+                <option value="2d1n">2D1N</option>
+                <option value="3d2n">3D2N</option>
+              </select>
+            </label>
+            <button type="button" id="clear-filters" class="btn btn-outline">Clear</button>
+          </form>
+        </div>
+
+        <div id="packages-grid" class="grid cards-3 packages-grid" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Kielan Travels Travel and Tours</h3>
+        <p>Baguio-based travel agency and transport service provider.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Facebook: Kielan Travels</p>
+        <p>Phone: [Add official number]</p>
+        <p>Email: [Add official email]</p>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <p>Facebook</p>
+        <p>TikTok</p>
+        <p>Instagram</p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Kielan Travels Travel and Tours. All rights reserved.</p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

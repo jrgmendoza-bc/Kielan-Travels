@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking Inquiry | Kielan Travels Travel and Tours</title>
+  <meta
+    name="description"
+    content="Submit your Kielan Travels booking inquiry with destination, dates, and group details."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="home-page">
+  <header class="site-header" id="top">
+    <nav class="navbar container">
+      <a class="brand" href="index.html" aria-label="Kielan Travels homepage">
+        <img src="assets/logo.jpg" alt="Kielan Travels circular company logo" />
+        <div>
+          <strong>Kielan Travels</strong>
+          <span>Travel and Tours</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html#featured-moments">Travel Moments</a></li>
+        <li><a href="index.html#testimonials">Testimonials</a></li>
+        <li class="nav-mobile-book"><a href="booking.html" class="btn btn-primary">Book Now</a></li>
+      </ul>
+
+      <a href="booking.html" class="btn btn-primary nav-book-btn">Book Now</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-banner container reveal">
+      <p class="eyebrow">Booking Inquiry</p>
+      <h1>Reserve Your Preferred Travel Slot</h1>
+      <p>
+        Complete the form below and our team will guide you through schedule availability,
+        package recommendations, and transport planning.
+      </p>
+    </section>
+
+    <section class="section page-content">
+      <div class="container form-layout">
+        <section class="content-card reveal" aria-labelledby="booking-form-title">
+          <h2 id="booking-form-title">Trip Inquiry Form</h2>
+          <form class="inquiry-form email-form" id="booking-form" action="https://formsubmit.co/jrgmendoza2k19@gmail.com" method="POST">
+            <!-- Form submissions are sent through FormSubmit to the configured receiving email. -->
+            <input type="hidden" name="_subject" value="New Booking Inquiry - Kielan Travels" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <label for="booking-name">Full Name</label>
+            <input id="booking-name" name="name" type="text" placeholder="Enter your full name" required />
+
+            <label for="booking-email">Email Address</label>
+            <input id="booking-email" name="email" type="email" placeholder="name@example.com" required />
+
+            <label for="booking-phone">Mobile Number</label>
+            <input id="booking-phone" name="phone" type="tel" placeholder="09XX XXX XXXX" required />
+
+            <label for="booking-package">Preferred Package</label>
+            <select id="booking-package" name="package" required>
+              <option value="">Select a package</option>
+              <option value="baguio-city">Baguio City Tour</option>
+              <option value="atok-tour">Atok Tour</option>
+              <option value="sagada-tour">Sagada Tour</option>
+              <option value="baler-tour">Baler Tour</option>
+              <option value="banaue-batad">Banaue / Batad Tour</option>
+            </select>
+
+            <div class="form-row-two">
+              <div>
+                <label for="booking-date">Preferred Travel Date</label>
+                <input id="booking-date" name="date" type="date" required />
+              </div>
+              <div>
+                <label for="booking-pax">Number of Travelers</label>
+                <input id="booking-pax" name="pax" type="number" min="1" placeholder="e.g. 6" required />
+              </div>
+            </div>
+
+            <label for="booking-notes">Additional Notes</label>
+            <textarea
+              id="booking-notes"
+              name="notes"
+              rows="4"
+              placeholder="Include pickup area, age range, or special requests."
+            ></textarea>
+
+            <button class="btn btn-primary" type="submit">Send Booking Inquiry</button>
+            <p class="form-feedback" data-form-feedback aria-live="polite"></p>
+          </form>
+        </section>
+
+        <article class="content-card reveal">
+          <h2>Before You Submit</h2>
+          <ul>
+            <li>Include your exact travel date or preferred date range.</li>
+            <li>Share your pickup area so we can suggest efficient routing.</li>
+            <li>For large groups, indicate if a private vehicle is preferred.</li>
+            <li>Response time is fastest via Facebook page messaging.</li>
+          </ul>
+          <a class="btn btn-outline" href="https://www.facebook.com/KielanTravels" target="_blank" rel="noreferrer">Message Us on Facebook</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Kielan Travels Travel and Tours</h3>
+        <p>Baguio-based travel agency and transport service provider.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Facebook: Kielan Travels</p>
+        <p>Phone: [Add official number]</p>
+        <p>Email: [Add official email]</p>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <p>Facebook</p>
+        <p>TikTok</p>
+        <p>Instagram</p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Kielan Travels Travel and Tours. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

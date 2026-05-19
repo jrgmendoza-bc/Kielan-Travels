@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kielan Travels Travel and Tours | Baguio Tours and Transport</title>
+  <meta
+    name="description"
+    content="Kielan Travels Travel and Tours is a Baguio-based travel and tour agency and transport service provider for Northern Luzon destinations."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="home-page">
+  <header class="site-header" id="top">
+    <nav class="navbar container">
+      <a class="brand" href="#top" aria-label="Kielan Travels homepage">
+        <img src="assets/logo.jpg" alt="Kielan Travels logo" />
+        <div>
+          <strong>Kielan Travels</strong>
+          <span>Travel and Tours</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#top" class="is-active">Home</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#featured-moments">Travel Moments</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li class="nav-mobile-book"><a href="booking.html" class="btn btn-primary">Book Now</a></li>
+      </ul>
+
+      <a href="booking.html" class="btn btn-primary nav-book-btn">Book Now</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-visual reveal">
+      <div class="hero-overlay">
+        <div class="container hero-inner">
+          <p class="eyebrow">Kielan Travels Travel and Tours</p>
+          <h1>To Travel is to Experience</h1>
+          <p>
+            Your trusted travel partner in Baguio and beyond. Explore beautiful destinations with
+            safe, comfortable, and memorable journeys.
+          </p>
+          <div class="hero-actions">
+            <a href="#packages" class="btn btn-primary">Explore Packages</a>
+            <a href="booking.html" class="btn btn-outline">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
+          <path d="M0,88L60,93.3C120,99,240,109,360,102.7C480,96,600,72,720,58.7C840,45,960,43,1080,56C1200,69,1320,96,1380,109.3L1440,123L1440,140L1380,140C1320,140,1200,140,1080,140C960,140,840,140,720,140C600,140,480,140,360,140C240,140,120,140,60,140L0,140Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <section class="destinations section container" id="destinations">
+      <div class="section-title">
+        <p class="eyebrow">Featured Destinations</p>
+        <h2>Choose Your Next Northern Luzon Escape</h2>
+      </div>
+      <div class="grid cards-3 featured-destination-grid">
+        <article class="destination-card reveal">
+          <img src="https://images.unsplash.com/photo-1588416499018-1a2527c5c65d?auto=format&fit=crop&w=1200&q=80" alt="Baguio city park and road view" loading="lazy" decoding="async" />
+          <div>
+            <h3>Baguio City Tour</h3>
+            <p>City highlights, scenic viewpoints, and food stops ideal for first-time visitors.</p>
+            <p class="card-price">Starts at PHP 1,799 / pax</p>
+            <a href="package-details.html?id=baguio-city" class="btn btn-outline card-btn">View Details</a>
+          </div>
+        </article>
+        <article class="destination-card reveal">
+          <img src="https://images.unsplash.com/photo-1630910895377-0bc7d5f96f80?auto=format&fit=crop&w=1200&q=80" alt="Sagada mountain and limestone landscape" loading="lazy" decoding="async" />
+          <div>
+            <h3>Sagada Adventure</h3>
+            <p>Mountain views, culture-rich landmarks, and memorable highland experiences.</p>
+            <p class="card-price">Starts at PHP 4,899 / pax</p>
+            <a href="package-details.html?id=sagada-tour" class="btn btn-outline card-btn">View Details</a>
+          </div>
+        </article>
+        <article class="destination-card reveal">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80" alt="Atok flower farm and mountain sky" loading="lazy" decoding="async" />
+          <div>
+            <h3>Atok Flower Farm</h3>
+            <p>Sea-of-clouds mornings, colorful gardens, and cool mountain atmosphere.</p>
+            <p class="card-price">Starts at PHP 2,399 / pax</p>
+            <a href="package-details.html?id=atok-tour" class="btn btn-outline card-btn">View Details</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="road-strip section reveal" aria-label="Travel animation divider">
+      <div class="container road-strip-inner">
+        <p class="eyebrow">On The Road</p>
+        <h2>Every Tour Starts With A Comfortable Ride</h2>
+      </div>
+      <div class="road-lane" aria-hidden="true">
+        <div class="lane-markings"></div>
+        <div class="car-drive">
+          <span class="car-body"></span>
+          <span class="car-top"></span>
+          <span class="wheel wheel-front"></span>
+          <span class="wheel wheel-back"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="why section container" id="why-kielan">
+      <div class="section-title reveal">
+        <p class="eyebrow">Why Choose Us</p>
+        <h2>Built For Safe and Comfortable Trips</h2>
+      </div>
+      <div class="grid cards-4 trust-grid">
+        <article class="benefit reveal trust-card">
+          <span class="trust-icon" aria-hidden="true">SR</span>
+          <h3>Safe and Reliable</h3>
+          <p>Consistent coordination and practical route planning for smooth travel days.</p>
+        </article>
+        <article class="benefit reveal trust-card">
+          <span class="trust-icon" aria-hidden="true">FS</span>
+          <h3>Friendly Service</h3>
+          <p>Approachable travel support from inquiry stage up to final destination drop-off.</p>
+        </article>
+        <article class="benefit reveal trust-card">
+          <span class="trust-icon" aria-hidden="true">CR</span>
+          <h3>Comfortable Rides</h3>
+          <p>Guest-friendly vans and organized transport setup for families, groups, and teams.</p>
+        </article>
+        <article class="benefit reveal trust-card">
+          <span class="trust-icon" aria-hidden="true">AR</span>
+          <h3>Affordable Rates</h3>
+          <p>Value-packed tours with clear inclusions and transparent booking coordination.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="packages section" id="packages">
+      <div class="container">
+        <div class="section-title reveal">
+          <p class="eyebrow">Popular tour packages</p>
+          <h2>Popular Tour Packages</h2>
+        </div>
+
+        <div class="grid cards-3 package-showcase-grid">
+          <article class="package-card reveal package-showcase-card">
+            <img src="https://images.unsplash.com/photo-1588416499018-1a2527c5c65d?auto=format&fit=crop&w=1200&q=80" alt="Baguio city tour destination" loading="lazy" decoding="async" />
+            <div class="package-showcase-content">
+              <span class="tag">Day Tour</span>
+              <h3>Baguio City Tour</h3>
+              <p>Tour Type: City Highlights</p>
+              <p>Duration: 1 Day</p>
+              <p class="card-price">PHP 1,799 / pax</p>
+              <a href="package-details.html?id=baguio-city" class="btn btn-outline card-btn">View Details</a>
+            </div>
+          </article>
+
+          <article class="package-card reveal package-showcase-card">
+            <img src="https://images.unsplash.com/photo-1630910895377-0bc7d5f96f80?auto=format&fit=crop&w=1200&q=80" alt="Sagada mountain destination view" loading="lazy" decoding="async" />
+            <div class="package-showcase-content">
+            <span class="tag">2D1N</span>
+              <h3>Sagada Adventure</h3>
+              <p>Tour Type: Mountain and Culture</p>
+              <p>Duration: 2 Days / 1 Night</p>
+              <p class="card-price">PHP 4,899 / pax</p>
+              <a href="package-details.html?id=sagada-tour" class="btn btn-outline card-btn">View Details</a>
+            </div>
+          </article>
+
+          <article class="package-card reveal package-showcase-card">
+            <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80" alt="Baler beach and road landscape" loading="lazy" decoding="async" />
+            <div class="package-showcase-content">
+            <span class="tag">3D2N</span>
+              <h3>Baler Beach Trip</h3>
+              <p>Tour Type: Coastal Adventure</p>
+              <p>Duration: 2 Days / 1 Night</p>
+              <p class="card-price">PHP 5,199 / pax</p>
+              <a href="package-details.html?id=baler-tour" class="btn btn-outline card-btn">View Details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-moments section" id="featured-moments">
+      <div class="container">
+        <div class="section-title reveal">
+          <p class="eyebrow">Featured Travel Moments</p>
+          <h2>Travel Moments with Our Guests</h2>
+        </div>
+
+        <div class="moments-carousel reveal" data-carousel>
+          <div class="moments-track" aria-live="polite">
+            <article class="moment-slide is-active" data-slide>
+              <img src="assets/images/moments/moment-1.jpg" alt="Group of guests during Baguio City Tour" loading="lazy" decoding="async" />
+              <div class="moment-caption">
+                <h3>Baguio City Tour with Our Guests</h3>
+              </div>
+            </article>
+            <article class="moment-slide" data-slide>
+              <img src="assets/images/moments/moment-2.jpg" alt="Travelers enjoying a Sagada destination stop" loading="lazy" decoding="async" />
+              <div class="moment-caption">
+                <h3>Sagada Travel Memories</h3>
+              </div>
+            </article>
+            <article class="moment-slide" data-slide>
+              <img src="assets/images/moments/moment-3.jpg" alt="Atok group travel photo during mountain adventure" loading="lazy" decoding="async" />
+              <div class="moment-caption">
+                <h3>Atok Group Adventure</h3>
+              </div>
+            </article>
+            <article class="moment-slide" data-slide>
+              <img src="assets/images/moments/moment-4.jpg" alt="Guests during Baler beach trip" loading="lazy" decoding="async" />
+              <div class="moment-caption">
+                <h3>Baler Beach Trip</h3>
+              </div>
+            </article>
+            <article class="moment-slide" data-slide>
+              <img src="assets/images/moments/moment-5.jpg" alt="Happy travelers with Kielan Travels" loading="lazy" decoding="async" />
+              <div class="moment-caption">
+                <h3>Happy Travelers with Kielan Travels</h3>
+              </div>
+            </article>
+          </div>
+
+          <button class="moment-control moment-prev" type="button" aria-label="Previous travel moment" data-carousel-prev>‹</button>
+          <button class="moment-control moment-next" type="button" aria-label="Next travel moment" data-carousel-next>›</button>
+
+          <div class="moment-dots" role="tablist" aria-label="Carousel slide controls">
+            <button class="moment-dot is-active" type="button" aria-label="Show slide 1" aria-selected="true" data-carousel-dot="0"></button>
+            <button class="moment-dot" type="button" aria-label="Show slide 2" aria-selected="false" data-carousel-dot="1"></button>
+            <button class="moment-dot" type="button" aria-label="Show slide 3" aria-selected="false" data-carousel-dot="2"></button>
+            <button class="moment-dot" type="button" aria-label="Show slide 4" aria-selected="false" data-carousel-dot="3"></button>
+            <button class="moment-dot" type="button" aria-label="Show slide 5" aria-selected="false" data-carousel-dot="4"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials section" id="testimonials">
+      <div class="container">
+        <div class="section-title reveal">
+          <p class="eyebrow">Client trust</p>
+          <h2>Verified Traveler Reviews</h2>
+        </div>
+        <div id="home-reviews-grid" class="grid cards-3" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="final-cta section reveal" id="book">
+      <div class="container final-cta-wrap">
+        <h2>Ready for Your Next Adventure?</h2>
+        <p>Book your preferred destination today and let Kielan Travels handle the journey details.</p>
+        <div class="hero-actions">
+          <a href="booking.html" class="btn btn-primary">Book Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid footer-columns">
+      <div>
+        <h3>Kielan Travels Travel and Tours</h3>
+        <p>Your trusted travel agency for Baguio and Northern Luzon experiences.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="#top">Home</a></p>
+        <p><a href="#destinations">Destinations</a></p>
+        <p><a href="#packages">Packages</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <p>Group Tours</p>
+        <p>Private Van Trips</p>
+        <p>Custom Itinerary Planning</p>
+        <p>Corporate and Family Tours</p>
+      </div>
+      <div>
+        <h4>Contact Info</h4>
+        <p>Facebook: Kielan Travels</p>
+        <p>Phone: [Add official number]</p>
+        <p>Email: [Add official email]</p>
+      </div>
+      <div>
+        <h4>Social</h4>
+        <p>Facebook</p>
+        <p>Instagram</p>
+        <p>TikTok</p>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Kielan Travels Travel and Tours. All rights reserved.</p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
