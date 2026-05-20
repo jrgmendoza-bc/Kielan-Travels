@@ -139,8 +139,9 @@ function initBookingFormValidation() {
     }
 
     const applyMessage = () => {
+      field.setCustomValidity('');
+
       if (field.validity.valid) {
-        field.setCustomValidity('');
         return;
       }
 
@@ -273,9 +274,46 @@ function initEmailForms() {
 
   emailForms.forEach((form) => {
     const feedback = form.querySelector('[data-form-feedback]');
+    const emailFields = Array.from(form.querySelectorAll('input[type="email"]'));
+
+    const normalizeEmail = (value) => value.trim().replace(/\s+/g, '').toLowerCase();
+
+    emailFields.forEach((field) => {
+      field.addEventListener('input', () => {
+        field.value = normalizeEmail(field.value);
+        if (field.validity.valid) {
+          field.setCustomValidity('');
+        }
+      });
+
+      field.addEventListener('blur', () => {
+        field.value = normalizeEmail(field.value);
+      });
+
+      field.addEventListener('invalid', () => {
+        if (field.validity.valueMissing) {
+          field.setCustomValidity('Please enter your email address.');
+          return;
+        }
+
+        if (field.validity.typeMismatch) {
+          field.setCustomValidity('Please check your email address.');
+          return;
+        }
+
+        field.setCustomValidity('');
+      });
+    });
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
+
+      emailFields.forEach((field) => {
+        field.value = normalizeEmail(field.value);
+        if (field.validity.valid) {
+          field.setCustomValidity('');
+        }
+      });
 
       if (!form.checkValidity()) {
         form.reportValidity();
