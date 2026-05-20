@@ -57,19 +57,36 @@
       <div class="container form-layout">
         <section class="content-card reveal" aria-labelledby="booking-form-title">
           <h2 id="booking-form-title">Trip Inquiry Form</h2>
-          <form class="inquiry-form email-form" id="booking-form" action="https://formsubmit.co/jrgmendoza2k19@gmail.com" method="POST">
-            <!-- Form submissions are sent through FormSubmit to the configured receiving email. -->
+          <form class="inquiry-form email-form" id="booking-form" action="https://formspree.io/f/mgoqaknk" method="POST">
+            <!-- Form submissions are sent through Formspree. Booking form is connected to Formspree. -->
             <input type="hidden" name="_subject" value="New Booking Inquiry - Kielan Travels" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
+                        <input type="hidden" name="_next" value="https://kielanttravels.com/booking.html" />
             <label for="booking-name">Full Name</label>
-            <input id="booking-name" name="name" type="text" placeholder="Enter your full name" required />
+            <input
+              id="booking-name"
+              name="name"
+              type="text"
+              placeholder="Enter your full name"
+              pattern="[A-Za-z][A-Za-z\s'.-]*"
+              title="Name must contain letters only (spaces, apostrophe, period, and hyphen are allowed)."
+              required
+            />
 
             <label for="booking-email">Email Address</label>
             <input id="booking-email" name="email" type="email" placeholder="name@example.com" required />
 
             <label for="booking-phone">Mobile Number</label>
-            <input id="booking-phone" name="phone" type="tel" placeholder="09XX XXX XXXX" required />
+            <input
+              id="booking-phone"
+              name="phone"
+              type="tel"
+              placeholder="09xx-xxx-xxxx"
+              inputmode="numeric"
+              pattern="09\d{2}-\d{3}-\d{4}"
+              maxlength="13"
+              title="Use this format: 09xx-xxx-xxxx"
+              required
+            />
 
             <label for="booking-package">Preferred Package</label>
             <select id="booking-package" name="package" required>
@@ -88,7 +105,16 @@
               </div>
               <div>
                 <label for="booking-pax">Number of Travelers</label>
-                <input id="booking-pax" name="pax" type="number" min="1" placeholder="e.g. 6" required />
+                <input
+                  id="booking-pax"
+                  name="pax"
+                  type="text"
+                  inputmode="numeric"
+                  pattern="\d+(?:-\d+)?"
+                  placeholder="e.g. 3-5 pax"
+                  title="Use numbers only, or a range like 3-5."
+                  required
+                />
               </div>
             </div>
 

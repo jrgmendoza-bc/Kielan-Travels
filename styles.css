@@ -268,6 +268,10 @@ textarea:focus-visible {
   border: 1px solid rgba(18, 32, 38, 0.08);
 }
 
+.benefit {
+  padding: 1.15rem 1.1rem 1.2rem;
+}
+
 .destination-card img {
   width: 100%;
   height: 190px;
@@ -279,6 +283,16 @@ textarea:focus-visible {
 .benefit h3 {
   margin: 0;
   font-family: "Montserrat Alternates", sans-serif;
+  line-height: 1.24;
+}
+
+.benefit h3 {
+  margin-bottom: 0.55rem;
+}
+
+.benefit p {
+  margin: 0;
+  line-height: 1.68;
 }
 
 .destination-card div {
@@ -307,17 +321,20 @@ textarea:focus-visible {
   position: relative;
   min-height: clamp(250px, 44vw, 460px);
   background: #dbeef5;
+  isolation: isolate;
 }
 
 .moment-slide {
   position: absolute;
   inset: 0;
+  display: none;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.55s ease;
 }
 
 .moment-slide.is-active {
+  display: block;
   opacity: 1;
   pointer-events: auto;
 }
@@ -583,6 +600,10 @@ textarea:focus-visible {
   text-align: center;
 }
 
+.reviews-more-btn {
+  min-width: 190px;
+}
+
 .booking-cta {
   text-align: center;
   background: linear-gradient(135deg, #c8effb, #fff2cc);
@@ -594,6 +615,10 @@ textarea:focus-visible {
   margin-top: 0;
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-family: "Montserrat Alternates", sans-serif;
+}
+
+.booking-cta .hero-actions {
+  justify-content: center;
 }
 
 .site-footer {
@@ -1060,6 +1085,7 @@ textarea:focus-visible {
 .details-card ul {
   margin: 0;
   padding-left: 1.1rem;
+  list-style: disc;
 }
 
 .details-card li + li {
@@ -1370,6 +1396,10 @@ textarea:focus-visible {
     grid-template-columns: 1fr;
   }
 
+  .reviews-more-btn {
+    width: 100%;
+  }
+
   .moment-caption {
     padding: 0.85rem 0.95rem;
   }
@@ -1600,7 +1630,7 @@ textarea:focus-visible {
   height: 100vh;
   height: 100svh;
   background-image:
-    linear-gradient(90deg, rgba(4, 28, 74, 0.8) 0%, rgba(4, 28, 74, 0.5) 45%, rgba(4, 28, 74, 0.12) 100%),
+    linear-gradient(100deg, rgba(3, 20, 58, 0.92) 0%, rgba(3, 23, 64, 0.72) 46%, rgba(3, 24, 66, 0.3) 100%),
     url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2000&q=80');
   background-size: cover;
   background-position: center;
@@ -1668,8 +1698,21 @@ textarea:focus-visible {
   animation: heroGridDrift 20s linear infinite;
 }
 
+.hero-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 74% 42%, rgba(12, 62, 138, 0.08), transparent 46%),
+    radial-gradient(circle at 12% 18%, rgba(0, 0, 0, 0.16), transparent 34%),
+    linear-gradient(180deg, rgba(2, 12, 34, 0.2) 0%, rgba(2, 12, 34, 0.08) 35%, rgba(1, 8, 26, 0.5) 100%);
+  z-index: 0;
+}
+
 .hero-inner {
   position: relative;
+  z-index: 1;
   color: #f3f8ff;
   max-width: 720px;
   padding-top: clamp(4rem, 9vh, 5.5rem);
@@ -1885,6 +1928,34 @@ textarea:focus-visible {
 
 .trust-grid {
   margin-top: 1rem;
+}
+.social-proof {
+  padding-top: 1rem;
+  padding-bottom: 2.2rem;
+}
+.social-proof-grid {
+  margin-top: 0.2rem;
+}
+.social-proof-card {
+  border-radius: 14px;
+  border: 1px solid rgba(53, 88, 216, 0.18);
+  background: linear-gradient(160deg, rgba(221, 235, 255, 0.95), rgba(196, 214, 242, 0.9));
+  box-shadow: 0 12px 22px rgba(11, 53, 124, 0.14);
+  padding: 1rem 0.9rem;
+  text-align: center;
+}
+.social-proof-value {
+  margin: 0;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.75rem);
+  font-weight: 800;
+  color: #0f3f9e;
+}
+.social-proof-label {
+  margin: 0.3rem 0 0;
+  font-size: 0.93rem;
+  color: #21435f;
+  font-weight: 700;
 }
 
 .road-strip {
@@ -2166,6 +2237,29 @@ textarea:focus-visible {
   border: 1px solid rgba(255, 255, 255, 0.23);
   background: linear-gradient(180deg, rgba(4, 24, 63, 0.05), rgba(255, 255, 255, 0.02));
 }
+.home-page .moments-track {
+  min-height: clamp(280px, 40vw, 460px);
+  aspect-ratio: 16 / 9;
+}
+.home-page .moment-slide {
+  border-radius: 12px;
+  overflow: hidden;
+}
+.home-page .moment-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.home-page .moment-caption {
+  padding: 1.1rem 1.2rem 1rem;
+  background: linear-gradient(180deg, rgba(5, 24, 62, 0.04) 0%, rgba(4, 25, 66, 0.86) 74%, rgba(2, 14, 40, 0.95) 100%);
+}
+.home-page .moment-caption p {
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: rgba(233, 247, 255, 0.92);
+}
 
 .home-page .moments-carousel::before {
   inset: 0.35rem;
@@ -2176,8 +2270,29 @@ textarea:focus-visible {
 }
 
 .home-page .moment-control {
-  background: rgba(4, 24, 63, 0.6);
-  border-color: rgba(255, 255, 255, 0.45);
+  width: 46px;
+  height: 46px;
+  background: rgba(4, 24, 63, 0.68);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 12px 18px rgba(4, 12, 34, 0.26);
+  backdrop-filter: blur(4px);
+}
+.home-page .moment-control:hover {
+  background: rgba(4, 24, 63, 0.84);
+  transform: translateY(-50%) scale(1.04);
+}
+.home-page .moment-dot {
+  width: 11px;
+  height: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.35);
+}
+.home-page .moment-dot.is-active {
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(143, 232, 255, 0.25);
+}
+.home-page .testimonials-grid {
+  margin-top: 1rem;
 }
 
 @keyframes drawFrame {
@@ -2251,6 +2366,38 @@ textarea:focus-visible {
 
 .home-page .review-head h3 {
   font-size: 0.95rem;
+}
+.review-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, rgba(18, 79, 193, 0.86), rgba(56, 155, 206, 0.92));
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+.review-title-block {
+  display: grid;
+  gap: 0.12rem;
+  margin-right: auto;
+}
+.review-package {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #255f8d;
+}
+.review-content {
+  margin: 0;
+  line-height: 1.6;
+}
+.review-meta {
+  justify-content: flex-end;
 }
 
 .home-page .final-cta {
@@ -2364,6 +2511,10 @@ textarea:focus-visible {
   max-width: 65ch;
 }
 
+.final-cta-wrap .hero-actions {
+  justify-content: center;
+}
+
 .home-page .site-footer {
   background: var(--deep-blue);
   color: #dbe7ff;
@@ -2463,6 +2614,15 @@ textarea:focus-visible {
 
   .package-showcase-card img {
     height: 180px;
+  }
+
+  .home-page .moments-track {
+    min-height: 220px;
+    aspect-ratio: 5 / 4;
+  }
+
+  .home-page .moment-caption p {
+    font-size: 0.84rem;
   }
 
   .footer-columns {

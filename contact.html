@@ -74,12 +74,11 @@
 
         <section class="content-card reveal" aria-labelledby="contact-form-title">
           <h2 id="contact-form-title">Quick Contact Form</h2>
-          <form class="inquiry-form email-form" id="contact-form" action="https://formsubmit.co/jrgmendoza2k19@gmail.com" method="POST">
-            <!-- Form submissions are sent through FormSubmit to the configured receiving email. -->
+          <form class="inquiry-form email-form" id="contact-form" action="https://formspree.io/f/mwvzlorq" method="POST">
+            <!-- Form submissions are sent through Formspree. Contact form is connected to Formspree. -->
             <input type="hidden" name="_subject" value="New Contact Inquiry - Kielan Travels" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <label for="contact-name">Full Name</label>
+            <input type="hidden" name="_next" value="https://kielanttravels.com/contact.html" />
+                        <label for="contact-name">Full Name</label>
             <input id="contact-name" name="name" type="text" placeholder="Juan Dela Cruz" required />
 
             <label for="contact-email">Email Address</label>

@@ -36,10 +36,10 @@
         <li><a href="contact.html">Contact</a></li>
         <li><a href="#featured-moments">Travel Moments</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
-        <li class="nav-mobile-book"><a href="booking.html" class="btn btn-primary">Book Now</a></li>
+        <li class="nav-mobile-book"><a href="booking.html#booking-form" class="btn btn-primary">Book Now</a></li>
       </ul>
 
-      <a href="booking.html" class="btn btn-primary nav-book-btn">Book Now</a>
+      <a href="booking.html#booking-form" class="btn btn-primary nav-book-btn">Book Now</a>
     </nav>
   </header>
 
@@ -55,7 +55,7 @@
           </p>
           <div class="hero-actions">
             <a href="#packages" class="btn btn-primary">Explore Packages</a>
-            <a href="booking.html" class="btn btn-outline">Book Now</a>
+            <a href="booking.html#booking-form" class="btn btn-outline">Book Now</a>
           </div>
         </div>
       </div>
@@ -163,7 +163,10 @@
               <p>Tour Type: City Highlights</p>
               <p>Duration: 1 Day</p>
               <p class="card-price">PHP 1,799 / pax</p>
-              <a href="package-details.html?id=baguio-city" class="btn btn-outline card-btn">View Details</a>
+              <div class="card-actions">
+                <a href="package-details.html?id=baguio-city" class="btn btn-outline card-btn">View Details</a>
+                <a href="booking.html?package=baguio-city" class="btn btn-primary card-btn">Book Now</a>
+              </div>
             </div>
           </article>
 
@@ -175,7 +178,10 @@
               <p>Tour Type: Mountain and Culture</p>
               <p>Duration: 2 Days / 1 Night</p>
               <p class="card-price">PHP 4,899 / pax</p>
-              <a href="package-details.html?id=sagada-tour" class="btn btn-outline card-btn">View Details</a>
+              <div class="card-actions">
+                <a href="package-details.html?id=sagada-tour" class="btn btn-outline card-btn">View Details</a>
+                <a href="booking.html?package=sagada-tour" class="btn btn-primary card-btn">Book Now</a>
+              </div>
             </div>
           </article>
 
@@ -185,12 +191,36 @@
             <span class="tag">3D2N</span>
               <h3>Baler Beach Trip</h3>
               <p>Tour Type: Coastal Adventure</p>
-              <p>Duration: 2 Days / 1 Night</p>
+              <p>Duration: 3 Days / 2 Nights</p>
               <p class="card-price">PHP 5,199 / pax</p>
-              <a href="package-details.html?id=baler-tour" class="btn btn-outline card-btn">View Details</a>
+              <div class="card-actions">
+                <a href="package-details.html?id=baler-tour" class="btn btn-outline card-btn">View Details</a>
+                <a href="booking.html?package=baler-tour" class="btn btn-primary card-btn">Book Now</a>
+              </div>
             </div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="social-proof section container" aria-label="Kielan Travels social proof">
+      <div class="grid cards-4 social-proof-grid">
+        <article class="social-proof-card reveal">
+          <p class="social-proof-value">100+</p>
+          <p class="social-proof-label">Trips Organized</p>
+        </article>
+        <article class="social-proof-card reveal">
+          <p class="social-proof-value">Baguio</p>
+          <p class="social-proof-label">Baguio-Based Service</p>
+        </article>
+        <article class="social-proof-card reveal">
+          <p class="social-proof-value">Flexible</p>
+          <p class="social-proof-label">Group &amp; Private Tours</p>
+        </article>
+        <article class="social-proof-card reveal">
+          <p class="social-proof-value">North PH</p>
+          <p class="social-proof-label">Northern Luzon Destinations</p>
+        </article>
       </div>
     </section>
 
@@ -207,30 +237,35 @@
               <img src="assets/images/moments/moment-1.jpg" alt="Group of guests during Baguio City Tour" loading="lazy" decoding="async" />
               <div class="moment-caption">
                 <h3>Baguio City Tour with Our Guests</h3>
+                <p>Comfortable city loop, friendly guide support, and smooth guest pickup flow.</p>
               </div>
             </article>
             <article class="moment-slide" data-slide>
               <img src="assets/images/moments/moment-2.jpg" alt="Travelers enjoying a Sagada destination stop" loading="lazy" decoding="async" />
               <div class="moment-caption">
                 <h3>Sagada Travel Memories</h3>
+                <p>Mountain views and clear coordination from departure to final drop-off.</p>
               </div>
             </article>
             <article class="moment-slide" data-slide>
               <img src="assets/images/moments/moment-3.jpg" alt="Atok group travel photo during mountain adventure" loading="lazy" decoding="async" />
               <div class="moment-caption">
                 <h3>Atok Group Adventure</h3>
+                <p>Cool-weather highland route paced for photo stops and group comfort.</p>
               </div>
             </article>
             <article class="moment-slide" data-slide>
               <img src="assets/images/moments/moment-4.jpg" alt="Guests during Baler beach trip" loading="lazy" decoding="async" />
               <div class="moment-caption">
                 <h3>Baler Beach Trip</h3>
+                <p>Coastal escape with practical scheduling and transport handled end-to-end.</p>
               </div>
             </article>
             <article class="moment-slide" data-slide>
               <img src="assets/images/moments/moment-5.jpg" alt="Happy travelers with Kielan Travels" loading="lazy" decoding="async" />
               <div class="moment-caption">
                 <h3>Happy Travelers with Kielan Travels</h3>
+                <p>Guest-first service that keeps family and barkada trips hassle-free.</p>
               </div>
             </article>
           </div>
@@ -255,7 +290,7 @@
           <p class="eyebrow">Client trust</p>
           <h2>Verified Traveler Reviews</h2>
         </div>
-        <div id="home-reviews-grid" class="grid cards-3" aria-live="polite"></div>
+        <div id="home-reviews-grid" class="grid cards-4 testimonials-grid" aria-live="polite"></div>
       </div>
     </section>
 
@@ -264,7 +299,7 @@
         <h2>Ready for Your Next Adventure?</h2>
         <p>Book your preferred destination today and let Kielan Travels handle the journey details.</p>
         <div class="hero-actions">
-          <a href="booking.html" class="btn btn-primary">Book Now</a>
+          <a href="booking.html#booking-form" class="btn btn-primary">Book Now</a>
         </div>
       </div>
     </section>

@@ -120,6 +120,151 @@ function initLeaveReviewForm() {
   });
 }
 
+function initBookingFormValidation() {
+  const bookingForm = document.querySelector('#booking-form');
+  if (!bookingForm) {
+    return;
+  }
+
+  const nameField = bookingForm.querySelector('#booking-name');
+  const emailField = bookingForm.querySelector('#booking-email');
+  const phoneField = bookingForm.querySelector('#booking-phone');
+  const packageField = bookingForm.querySelector('#booking-package');
+  const dateField = bookingForm.querySelector('#booking-date');
+  const paxField = bookingForm.querySelector('#booking-pax');
+
+  const setFriendlyValidation = (field, messageResolver) => {
+    if (!field) {
+      return;
+    }
+
+    const applyMessage = () => {
+      if (field.validity.valid) {
+        field.setCustomValidity('');
+        return;
+      }
+
+      field.setCustomValidity(messageResolver(field.validity));
+    };
+
+    field.addEventListener('invalid', applyMessage);
+    field.addEventListener('input', applyMessage);
+    field.addEventListener('change', applyMessage);
+  };
+
+  if (nameField) {
+    nameField.addEventListener('input', () => {
+      nameField.value = nameField.value.replace(/\d+/g, '');
+    });
+  }
+
+  setFriendlyValidation(nameField, (validity) => {
+    if (validity.valueMissing) {
+      return 'Please enter your full name.';
+    }
+    if (validity.patternMismatch) {
+      return "Name can only use letters, spaces, apostrophe ('), period (.), and hyphen (-).";
+    }
+    return 'Please check your full name.';
+  });
+
+  setFriendlyValidation(emailField, (validity) => {
+    if (validity.valueMissing) {
+      return 'Please enter your email address.';
+    }
+    if (validity.typeMismatch) {
+      return 'Please use a valid email address, like name@example.com.';
+    }
+    return 'Please check your email address.';
+  });
+
+  setFriendlyValidation(packageField, (validity) => {
+    if (validity.valueMissing) {
+      return 'Please select your preferred package.';
+    }
+    return 'Please select a package from the list.';
+  });
+
+  if (phoneField) {
+    const formatMobileNumber = (value) => {
+      const digits = value.replace(/\D+/g, '').slice(0, 11);
+
+      if (digits.length <= 4) {
+        return digits;
+      }
+      if (digits.length <= 7) {
+        return `${digits.slice(0, 4)}-${digits.slice(4)}`;
+      }
+      return `${digits.slice(0, 4)}-${digits.slice(4, 7)}-${digits.slice(7)}`;
+    };
+
+    phoneField.addEventListener('input', () => {
+      phoneField.value = formatMobileNumber(phoneField.value);
+    });
+  }
+
+  setFriendlyValidation(phoneField, (validity) => {
+    if (validity.valueMissing) {
+      return 'Please enter your mobile number.';
+    }
+    if (validity.patternMismatch) {
+      return 'Please use this format: 09xx-xxx-xxxx.';
+    }
+    return 'Please check your mobile number.';
+  });
+
+  if (dateField) {
+    const today = new Date();
+    const minDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(
+      today.getDate()
+    ).padStart(2, '0')}`;
+
+    dateField.min = minDate;
+  }
+
+  setFriendlyValidation(dateField, (validity) => {
+    if (validity.valueMissing) {
+      return 'Please choose your preferred travel date.';
+    }
+    if (validity.rangeUnderflow) {
+      return 'Past dates are not allowed. Please choose today or a future date.';
+    }
+    return 'Please choose a valid travel date.';
+  });
+
+  if (paxField) {
+    paxField.addEventListener('input', () => {
+      let nextValue = paxField.value.replace(/[^\d-]+/g, '');
+      nextValue = nextValue.replace(/-{2,}/g, '-');
+
+      const firstDashIndex = nextValue.indexOf('-');
+      if (firstDashIndex >= 0) {
+        nextValue =
+          nextValue.slice(0, firstDashIndex + 1) +
+          nextValue
+            .slice(firstDashIndex + 1)
+            .replace(/-/g, '');
+      }
+
+      if (nextValue.startsWith('-')) {
+        nextValue = nextValue.slice(1);
+      }
+
+      paxField.value = nextValue;
+    });
+  }
+
+  setFriendlyValidation(paxField, (validity) => {
+    if (validity.valueMissing) {
+      return 'Please enter the number of travelers.';
+    }
+    if (validity.patternMismatch) {
+      return 'Use numbers only, or a range like 3-5.';
+    }
+    return 'Please check the travelers field.';
+  });
+}
+
 function initEmailForms() {
   const emailForms = document.querySelectorAll('.email-form');
   if (!emailForms.length) {
@@ -138,9 +283,14 @@ function initEmailForms() {
       }
 
       const action = form.getAttribute('action') || '';
-      if (action.includes('YOUR_EMAIL_HERE')) {
+      const isConfiguredFormspreeAction =
+        /^https:\/\/formspree\.io\/f\/[^\s\/]+$/i.test(action) &&
+        !action.includes('BOOKING_FORM_ID') &&
+        !action.includes('CONTACT_FORM_ID');
+
+      if (!isConfiguredFormspreeAction) {
         if (feedback) {
-          feedback.textContent = 'Form email receiver is not configured yet. Please set a valid email in the form action.';
+          feedback.textContent = 'Form is not fully configured yet. Please replace BOOKING_FORM_ID and CONTACT_FORM_ID with your real Formspree IDs.';
         }
         return;
       }
@@ -160,13 +310,11 @@ function initEmailForms() {
         const response = await fetch(action, {
           method: 'POST',
           body: new FormData(form),
-          headers: {
-            Accept: 'application/json',
-          },
         });
 
         if (!response.ok) {
-          throw new Error('Request failed');
+          console.error('Formspree error:', response.status, response.statusText);
+          throw new Error(`Request failed with status ${response.status}`);
         }
 
         if (feedback) {
@@ -174,8 +322,9 @@ function initEmailForms() {
         }
         form.reset();
       } catch (error) {
+        console.error('Form submission error:', error);
         if (feedback) {
-          feedback.textContent = 'Unable to send inquiry right now. Please try again or message Kielan Travels on Facebook.';
+          feedback.textContent = 'Unable to send inquiry right now. Please check your email and try again, or message Kielan Travels on Facebook.';
         }
       } finally {
         if (submitButton) {
@@ -288,6 +437,7 @@ window.observeRevealElements = observeRevealElements;
 observeRevealElements();
 initBookingPackagePrefill();
 initLeaveReviewForm();
+initBookingFormValidation();
 initEmailForms();
 initAutoHideHeader();
 initAmbientMotion();

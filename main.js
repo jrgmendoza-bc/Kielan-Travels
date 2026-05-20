@@ -140,8 +140,8 @@ const PACKAGE_DATA = [
     id: 'baler-tour',
     title: 'Baler Tour',
     location: 'Baler, Aurora',
-    durationLabel: '2D1N',
-    durationType: '2d1n',
+    durationLabel: '3 Days / 2 Nights',
+    durationType: '3d2n',
     price: 5199,
     priceLabel: 'PHP 5,199 / pax',
     image:
@@ -152,7 +152,7 @@ const PACKAGE_DATA = [
       'This Baler Tour package is tailored for guests who want a refreshing coastline break from the highlands. The trip includes beach leisure windows, lighthouse and heritage stops, and optional surf sessions for first-timers.',
     inclusions: [
       'Roundtrip transport from Baguio to Baler',
-      '1-night accommodation near Sabang area',
+      '2-night accommodation near Sabang area',
       'Tour route and schedule coordination',
       'Driver guide and group assistance'
     ],
@@ -170,7 +170,9 @@ const PACKAGE_DATA = [
       'Day 1 07:00 PM - Check-in and dinner',
       'Day 2 06:00 AM - Lighthouse viewpoint and photo stop',
       'Day 2 09:00 AM - Optional surf session or cafe break',
-      'Day 2 12:00 PM - Return travel to Baguio'
+      'Day 2 04:30 PM - Dinner and overnight stay in Baler',
+      'Day 3 07:00 AM - Breakfast and checkout',
+      'Day 3 09:00 AM - Return travel to Baguio'
     ],
     reminders: [
       'Pack quick-dry clothes and sun protection.',
@@ -229,6 +231,45 @@ const PACKAGE_DATA = [
       'Accommodation allocation: PHP 1,350',
       'Transport and coordination support: PHP 799'
     ]
+  }
+];
+
+const FEATURED_HOME_REVIEWS = [
+  {
+    fullName: 'Maricel D.',
+    rating: 5,
+    packageName: 'Baguio City Tour',
+    message:
+      'Smooth and organized Baguio tour. The ride was comfortable and the team was very accommodating.',
+    dateLabel: 'Verified Guest • Recent Trip',
+    status: 'approved'
+  },
+  {
+    fullName: 'Jayson P.',
+    rating: 5,
+    packageName: 'Sagada Tour',
+    message:
+      'Our Sagada trip was memorable. Clear instructions, friendly coordination, and hassle-free travel.',
+    dateLabel: 'Verified Guest • Recent Trip',
+    status: 'approved'
+  },
+  {
+    fullName: 'Lea M.',
+    rating: 5,
+    packageName: 'Baler Tour',
+    message:
+      'Affordable and reliable service. Perfect for group travel and family trips.',
+    dateLabel: 'Verified Guest • Recent Trip',
+    status: 'approved'
+  },
+  {
+    fullName: 'Kevin R.',
+    rating: 5,
+    packageName: 'Atok Tour',
+    message:
+      'Very responsive team and practical itinerary pacing. Our group enjoyed the full day without stress.',
+    dateLabel: 'Verified Guest • Recent Trip',
+    status: 'approved'
   }
 ];
 
@@ -435,6 +476,15 @@ function renderStars(rating) {
   return '★'.repeat(rating) + '☆'.repeat(5 - rating);
 }
 
+function getInitials(fullName) {
+  return String(fullName)
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0].toUpperCase())
+    .join('');
+}
+
 function getApprovedReviews() {
   return REVIEW_DATA.filter((review) => review.status === 'approved');
 }
@@ -451,12 +501,15 @@ function buildReviewCardMarkup(review, useRevealClass = true) {
   return `
     <article class="testimonial review-card${useRevealClass ? ' reveal' : ''}">
       <header class="review-head">
-        <h3>${escapeHtml(review.fullName)}</h3>
+        <span class="review-avatar" aria-hidden="true">${escapeHtml(getInitials(review.fullName))}</span>
+        <div class="review-title-block">
+          <h3>${escapeHtml(review.fullName)}</h3>
+          <p class="review-package">${escapeHtml(review.packageName)}</p>
+        </div>
         <span class="review-rating" aria-label="${review.rating} out of 5 stars">${renderStars(review.rating)}</span>
       </header>
-      <p>${escapeHtml(review.message)}</p>
+      <p class="review-content">${escapeHtml(review.message)}</p>
       <footer class="review-meta">
-        <span>${escapeHtml(review.packageName)}</span>
         <span>${escapeHtml(review.dateLabel)}</span>
       </footer>
     </article>
@@ -542,13 +595,13 @@ function initReviewCarousel(carousel) {
 }
 
 function renderReviewCards(targetSelector, options = {}) {
-  const { limit, carousel = false, perSlide = 3 } = options;
+  const { limit, carousel = false, perSlide = 3, sourceReviews, gridClass = 'cards-3' } = options;
   const target = document.querySelector(targetSelector);
   if (!target) {
     return;
   }
 
-  const approvedReviews = getApprovedReviews();
+  const approvedReviews = Array.isArray(sourceReviews) ? sourceReviews : getApprovedReviews();
   const items = typeof limit === 'number' ? approvedReviews.slice(0, limit) : approvedReviews;
 
   if (!items.length) {
@@ -604,7 +657,8 @@ function renderReviewCards(targetSelector, options = {}) {
   }
 
   target.classList.remove('review-carousel-host');
-  target.classList.add('grid', 'cards-3');
+  target.classList.remove('cards-3', 'cards-4');
+  target.classList.add('grid', gridClass);
 
   target.innerHTML = items
     .map((review) => buildReviewCardMarkup(review))
@@ -746,9 +800,9 @@ function buildDetailsSection(pkg) {
       <div class="details-main">
         <article class="details-card reveal">
           <h2>Itinerary</h2>
-          <ol>
+          <ul>
             ${pkg.itinerary.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
-          </ol>
+          </ul>
         </article>
 
         <article class="details-card reveal">
@@ -867,12 +921,16 @@ function initFeaturedMomentsCarousel() {
   }
 
   let autoSlideTimer;
+  let touchStartX = 0;
+  let touchDeltaX = 0;
 
   const renderSlide = (index) => {
     activeIndex = (index + slides.length) % slides.length;
 
     slides.forEach((slide, slideIndex) => {
-      slide.classList.toggle('is-active', slideIndex === activeIndex);
+      const isActive = slideIndex === activeIndex;
+      slide.classList.toggle('is-active', isActive);
+      slide.setAttribute('aria-hidden', String(!isActive));
     });
 
     dots.forEach((dot, dotIndex) => {
@@ -904,6 +962,28 @@ function initFeaturedMomentsCarousel() {
     });
   });
 
+  carousel.addEventListener('touchstart', (event) => {
+    touchStartX = event.changedTouches[0].clientX;
+    touchDeltaX = 0;
+  }, { passive: true });
+
+  carousel.addEventListener('touchmove', (event) => {
+    touchDeltaX = event.changedTouches[0].clientX - touchStartX;
+  }, { passive: true });
+
+  carousel.addEventListener('touchend', () => {
+    if (Math.abs(touchDeltaX) < 36) {
+      return;
+    }
+
+    if (touchDeltaX < 0) {
+      moveSlide(1);
+      return;
+    }
+
+    moveSlide(-1);
+  });
+
   carousel.addEventListener('mouseenter', () => {
     window.clearInterval(autoSlideTimer);
   });
@@ -912,13 +992,109 @@ function initFeaturedMomentsCarousel() {
     startAutoSlide();
   });
 
+  carousel.addEventListener('focusin', () => {
+    window.clearInterval(autoSlideTimer);
+  });
+
+  carousel.addEventListener('focusout', () => {
+    startAutoSlide();
+  });
+
+  renderSlide(activeIndex);
   startAutoSlide();
+}
+
+function initApprovedReviewsSection() {
+  const targetSelector = '#approved-reviews-grid';
+  const target = document.querySelector(targetSelector);
+  if (!target) {
+    return;
+  }
+
+  const approvedReviews = getApprovedReviews();
+  const mobileQuery = window.matchMedia('(max-width: 700px)');
+  const parent = target.parentElement;
+
+  if (!parent) {
+    return;
+  }
+
+  let visibleCount = 3;
+  let firstExpandDone = false;
+
+  let seeMoreWrap = parent.querySelector('[data-reviews-more-wrap]');
+  if (!seeMoreWrap) {
+    seeMoreWrap = document.createElement('div');
+    seeMoreWrap.className = 'reviews-cta';
+    seeMoreWrap.setAttribute('data-reviews-more-wrap', 'true');
+    seeMoreWrap.innerHTML = '<button type="button" class="btn btn-outline reviews-more-btn" data-reviews-more>See More Reviews</button>';
+    parent.appendChild(seeMoreWrap);
+  }
+
+  const seeMoreButton = seeMoreWrap.querySelector('[data-reviews-more]');
+
+  const renderMobileFeed = () => {
+    renderReviewCards(targetSelector, {
+      limit: visibleCount,
+      sourceReviews: approvedReviews,
+      gridClass: 'cards-3'
+    });
+
+    if (!seeMoreButton) {
+      return;
+    }
+
+    const hasMore = visibleCount < approvedReviews.length;
+    seeMoreWrap.hidden = !hasMore;
+    seeMoreButton.textContent = hasMore ? 'See More Reviews' : 'All Reviews Shown';
+    seeMoreButton.disabled = !hasMore;
+  };
+
+  const renderDesktopCarousel = () => {
+    renderReviewCards(targetSelector, {
+      carousel: true,
+      perSlide: 3,
+      sourceReviews: approvedReviews
+    });
+    seeMoreWrap.hidden = true;
+  };
+
+  const renderByViewport = () => {
+    if (mobileQuery.matches) {
+      renderMobileFeed();
+      return;
+    }
+
+    renderDesktopCarousel();
+  };
+
+  seeMoreButton?.addEventListener('click', () => {
+    if (!mobileQuery.matches) {
+      return;
+    }
+
+    const nextBatch = firstExpandDone ? 6 : 3;
+    visibleCount = Math.min(approvedReviews.length, visibleCount + nextBatch);
+    firstExpandDone = true;
+    renderMobileFeed();
+  });
+
+  mobileQuery.addEventListener('change', () => {
+    if (!mobileQuery.matches) {
+      visibleCount = 3;
+      firstExpandDone = false;
+    }
+
+    renderByViewport();
+  });
+
+  renderByViewport();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   initPackageFilters();
-  renderReviewCards('#home-reviews-grid', { carousel: true, perSlide: 3 });
-  renderReviewCards('#approved-reviews-grid', { carousel: true, perSlide: 3 });
+  renderReviewCards('#home-reviews-grid', { limit: 4, sourceReviews: FEATURED_HOME_REVIEWS, gridClass: 'cards-4' });
+  initApprovedReviewsSection();
   renderPackageDetails();
   initFeaturedMomentsCarousel();
 });
