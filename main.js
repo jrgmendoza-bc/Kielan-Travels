@@ -144,7 +144,7 @@ const PACKAGE_DATA = [
     durationType: '3d2n',
     price: 5199,
     priceLabel: 'PHP 5,199 / pax',
-    image: 'assets/images/destinations/Baler_DicasalarinCove.jpg',
+    image: 'assets/images/destinations/Baler_DicasalarinCove.png',
     shortDescription:
       'Coastal escape with beach time, local history stops, and optional beginner-friendly surf sessions.',
     fullDescription:
@@ -192,7 +192,7 @@ const PACKAGE_DATA = [
     durationType: '3d2n',
     price: 7699,
     priceLabel: 'PHP 7,699 / pax',
-    image: 'assets/images/destinations/download.jpg',
+    image: 'assets/images/destinations/download.png',
     shortDescription:
       'Multi-day Cordillera heritage journey featuring iconic rice terraces and mountain village immersion.',
     fullDescription:
