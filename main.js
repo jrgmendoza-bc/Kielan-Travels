@@ -94,7 +94,7 @@ const PACKAGE_DATA = [
     id: 'sagada-tour',
     title: 'Sagada Tour',
     location: 'Sagada, Mountain Province',
-    durationLabel: '2D1N',
+    durationLabel: '2 Days / 1 Night',
     durationType: '2d1n',
     price: 4899,
     priceLabel: 'PHP 4,899 / pax',
@@ -102,7 +102,7 @@ const PACKAGE_DATA = [
     shortDescription:
       'A culture and nature escape with caves, viewpoints, and local community experiences in Sagada.',
     fullDescription:
-      'Our Sagada Tour package gives your group a complete 2D1N mountain experience with key destinations paced comfortably. This itinerary blends cultural landmarks, cave adventure opportunities, and scenic sunrise moments with practical travel coordination.',
+      'Our Sagada Tour package gives your group a complete 2 Days / 1 Night mountain experience with key destinations paced comfortably. This itinerary blends cultural landmarks, cave adventure opportunities, and scenic sunrise moments with practical travel coordination.',
     inclusions: [
       'Roundtrip transport from Baguio to Sagada',
       '1-night accommodation (standard room sharing)',
@@ -188,7 +188,7 @@ const PACKAGE_DATA = [
     id: 'banaue-batad',
     title: 'Banaue / Batad Tour',
     location: 'Ifugao Province',
-    durationLabel: '3D2N',
+    durationLabel: '3 Days / 2 Nights',
     durationType: '3d2n',
     price: 7699,
     priceLabel: 'PHP 7,699 / pax',
@@ -196,7 +196,7 @@ const PACKAGE_DATA = [
     shortDescription:
       'Multi-day Cordillera heritage journey featuring iconic rice terraces and mountain village immersion.',
     fullDescription:
-      'The Banaue and Batad package offers a deeper mountain experience for guests who want heritage landscapes and long-form travel. Across 3D2N, your group explores rice terrace viewpoints, village routes, and scenic mountain communities with enough rest and pacing.',
+      'The Banaue and Batad package offers a deeper mountain experience for guests who want heritage landscapes and long-form travel. Across 3 Days / 2 Nights, your group explores rice terrace viewpoints, village routes, and scenic mountain communities with enough rest and pacing.',
     inclusions: [
       'Roundtrip transport from Baguio to Ifugao',
       '2-night accommodation (shared standard rooms)',
