@@ -348,11 +348,25 @@ function initEmailForms() {
         const response = await fetch(action, {
           method: 'POST',
           body: new FormData(form),
+          headers: {
+            Accept: 'application/json',
+          },
         });
 
         if (!response.ok) {
-          console.error('Formspree error:', response.status, response.statusText);
-          throw new Error(`Request failed with status ${response.status}`);
+          let formspreeMessage = '';
+
+          try {
+            const errorPayload = await response.json();
+            if (Array.isArray(errorPayload?.errors) && errorPayload.errors.length) {
+              formspreeMessage = errorPayload.errors.map((item) => item.message).join(' ');
+            }
+          } catch (parseError) {
+            // Keep fallback message when response body is not JSON.
+          }
+
+          console.error('Formspree error:', response.status, response.statusText, formspreeMessage);
+          throw new Error(formspreeMessage || `Request failed with status ${response.status}`);
         }
 
         if (feedback) {
@@ -362,7 +376,8 @@ function initEmailForms() {
       } catch (error) {
         console.error('Form submission error:', error);
         if (feedback) {
-          feedback.textContent = 'Unable to send inquiry right now. Please check your email and try again, or message Kielan Travels on Facebook.';
+          const safeMessage = error instanceof Error && error.message ? error.message : '';
+          feedback.textContent = safeMessage || 'Unable to send inquiry right now. Please check your email and try again, or message Kielan Travels on Facebook.';
         }
       } finally {
         if (submitButton) {
