@@ -567,8 +567,8 @@ textarea:focus-visible {
 }
 
 .review-head {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 0.6rem;
 }
@@ -577,12 +577,15 @@ textarea:focus-visible {
   margin: 0;
   font-size: 1rem;
   font-family: "Montserrat Alternates", sans-serif;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .review-rating {
   font-weight: 800;
   color: #a66a00;
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
 .review-meta {
@@ -1416,7 +1419,7 @@ textarea:focus-visible {
   }
 
   .review-slide {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 }
 
@@ -2501,16 +2504,21 @@ textarea:focus-visible {
   display: grid;
   gap: 0.12rem;
   margin-right: auto;
+  min-width: 0;
 }
 .review-package {
   margin: 0;
   font-size: 0.82rem;
   font-weight: 700;
   color: #255f8d;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 .review-content {
   margin: 0;
   line-height: 1.6;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 .review-meta {
   justify-content: flex-end;
