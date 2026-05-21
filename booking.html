@@ -60,7 +60,7 @@
           <form class="inquiry-form email-form" id="booking-form" action="https://formspree.io/f/xwvzldgd" method="POST">
             <!-- Form submissions are sent through Formspree. Booking form is connected to Formspree. -->
             <input type="hidden" name="_subject" value="New Booking Inquiry - Kielan Travels" />
-                        <input type="hidden" name="_next" value="https://kielanttravels.com/booking.html" />
+            <input type="hidden" name="_next" value="booking.html" />
             <label for="booking-name">Full Name</label>
             <input
               id="booking-name"
@@ -140,6 +140,103 @@
             <li>Response time is fastest via Facebook page messaging.</li>
           </ul>
           <a class="btn btn-outline" href="https://www.facebook.com/KielanTravels" target="_blank" rel="noreferrer">Message Us on Facebook</a>
+        </article>
+      </div>
+    </section>
+
+    <section
+      class="section page-highlight down-payment-section"
+      id="down-payment-section"
+      aria-labelledby="down-payment-title"
+      hidden
+    >
+      <div class="container payment-flow-layout">
+        <article class="content-card reveal payment-guide-card">
+          <p class="eyebrow">After Booking Submission</p>
+          <h2 id="down-payment-title">Booking Procedure and Down Payment</h2>
+          <p>
+            Booking is <strong>not accepted</strong> until down payment is sent and manually checked by
+            the owner of Kielan Travels.
+          </p>
+          <p class="procedure-emphasis"><strong>Reservation Fee:</strong> P500 per pax</p>
+          <ul class="payment-reminders-list">
+            <li>Deposit your reservation fee of P500/pax using one of the payment options below.</li>
+            <li>For faster payment, use BDO or Maya QR, then send your receipt immediately.</li>
+            <li>After deposit is made, send a copy of your deposit slip immediately for confirmation.</li>
+            <li>Failure to send proof means no reservation.</li>
+            <li>Remaining balance will be collected by authorized personnel upon pickup.</li>
+          </ul>
+          <a class="btn btn-outline" href="https://www.facebook.com/KielanTravels" target="_blank" rel="noreferrer">Send Receipt on Facebook</a>
+        </article>
+
+        <article class="content-card reveal">
+          <h3>Payment Methods</h3>
+          <div class="payment-methods-grid" aria-label="Available payment methods">
+            <article class="payment-method-card">
+              <h4>Landbank</h4>
+              <p><strong>Account Name:</strong> Kielan Travels Travel and Tours</p>
+              <p><strong>Account Number:</strong> 3551018562</p>
+            </article>
+
+            <article class="payment-method-card">
+              <h4>BDO</h4>
+              <p><strong>Account Name:</strong> Jimi Ruel Awingan</p>
+              <p><strong>Account Number:</strong> 008500020259</p>
+              <img
+                class="payment-qr-image"
+                src="assets/images/payments/BDO.jpg"
+                alt="BDO QR code for Kielan Travels reservation payment"
+                onerror="this.style.display='none'"
+                loading="lazy"
+                decoding="async"
+              />
+            </article>
+
+            <article class="payment-method-card">
+              <h4>Maya</h4>
+              <p><strong>Account Name:</strong> Jimi Ruel Awingan</p>
+              <p><strong>Account Number:</strong> +639998816463</p>
+              <img
+                class="payment-qr-image"
+                src="assets/images/payments/Maya.jpg"
+                alt="Maya QR code for Kielan Travels reservation payment"
+                onerror="this.style.display='none'"
+                loading="lazy"
+                decoding="async"
+              />
+            </article>
+
+            <article class="payment-method-card">
+              <h4>GCash</h4>
+              <p><strong>Account Name:</strong> Jimi Ruel Awingan</p>
+              <p><strong>Account Number:</strong> +639271481795</p>
+              <div class="qr-placeholder-box" aria-hidden="true">GCash QR Available</div>
+            </article>
+          </div>
+        </article>
+      </div>
+
+      <div class="container section terms-block-wrap">
+        <article class="content-card reveal">
+          <p class="eyebrow">Terms and Conditions</p>
+          <h3>Reservation Policy</h3>
+          <ul class="terms-list">
+            <li>P500/pax is required as reservation fee.</li>
+            <li>Reservation fees are not refundable but rebookable and/or transferable.</li>
+            <li>Reservation fees are deductible from the package rate. Rules on payments are strictly implemented.</li>
+            <li>Confirmed bookings are strictly non-refundable but transferable.</li>
+            <li>Cancellation 10 days before the tour is non-refundable and non-transferable.</li>
+            <li>No seat reservation or arrangement. First come, first serve basis.</li>
+            <li>Pack light. Trolley is not allowed for joiners tour.</li>
+            <li>Kielan Travels Travel and Tours has the right to change itinerary without prior notice for safety or operational reasons.</li>
+            <li>Kielan Travels Travel and Tours may cancel joiners tour if minimum pax is not met.</li>
+            <li>Kielan Travels Travel and Tours may cancel any booked tour if circumstances affect tour procedures.</li>
+            <li>All reservation fee deposits will be refunded if rescheduling is not possible.</li>
+            <li>An additional option is transferring booked guests to a partner agency with same rate and inclusions.</li>
+            <li>Refunds are processed only through BDO, Landbank, Maya, or GCash accounts.</li>
+            <li>Service charges may be deducted from reservation fees if applicable.</li>
+          </ul>
+          <p class="terms-tag">#KielanTravels</p>
         </article>
       </div>
     </section>

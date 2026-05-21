@@ -272,6 +272,17 @@ function initEmailForms() {
     return;
   }
 
+  const showDownPaymentSection = () => {
+    const paymentSection = document.querySelector('#down-payment-section');
+    if (!paymentSection) {
+      return;
+    }
+
+    paymentSection.hidden = false;
+    observeRevealElements();
+    paymentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   emailForms.forEach((form) => {
     const feedback = form.querySelector('[data-form-feedback]');
     const emailFields = Array.from(form.querySelectorAll('input[type="email"]'));
@@ -370,9 +381,13 @@ function initEmailForms() {
         }
 
         if (feedback) {
-          feedback.textContent = 'Your inquiry was sent successfully. Kielan Travels will get back to you soon.';
+          feedback.textContent = 'Inquiry sent. Next step: choose your payment method below and send your down payment receipt for manual confirmation.';
         }
         form.reset();
+
+        if (form.id === 'booking-form') {
+          showDownPaymentSection();
+        }
       } catch (error) {
         console.error('Form submission error:', error);
         if (feedback) {
@@ -387,6 +402,20 @@ function initEmailForms() {
       }
     });
   });
+}
+
+function initBookingPaymentAnchor() {
+  if (window.location.hash !== '#down-payment-section') {
+    return;
+  }
+
+  const paymentSection = document.querySelector('#down-payment-section');
+  if (!paymentSection) {
+    return;
+  }
+
+  paymentSection.hidden = false;
+  observeRevealElements();
 }
 
 function initAutoHideHeader() {
@@ -492,5 +521,6 @@ initBookingPackagePrefill();
 initLeaveReviewForm();
 initBookingFormValidation();
 initEmailForms();
+initBookingPaymentAnchor();
 initAutoHideHeader();
 initAmbientMotion();
