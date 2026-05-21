@@ -2,16 +2,31 @@ const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('#nav-links');
 const mediaQueryMobile = window.matchMedia('(max-width: 700px)');
 
+function syncNavToggleIcon(isExpanded) {
+  if (!navToggle) {
+    return;
+  }
+
+  navToggle.textContent = isExpanded ? '✕' : '☰';
+  navToggle.setAttribute('aria-label', isExpanded ? 'Close menu' : 'Open menu');
+}
+
 function closeNavMenu() {
   navLinks?.classList.remove('open');
   navToggle?.setAttribute('aria-expanded', 'false');
+  syncNavToggleIcon(false);
 }
 
 navToggle?.addEventListener('click', () => {
   const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-  navToggle.setAttribute('aria-expanded', String(!expanded));
+  const nextExpanded = !expanded;
+
+  navToggle.setAttribute('aria-expanded', String(nextExpanded));
   navLinks?.classList.toggle('open');
+  syncNavToggleIcon(nextExpanded);
 });
+
+syncNavToggleIcon(false);
 
 navLinks?.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => {
