@@ -2706,6 +2706,32 @@ textarea:focus-visible {
   .footer-columns {
     grid-template-columns: 1fr 1fr;
   }
+
+  .home-page .testimonials-grid.cards-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .review-head {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "avatar title"
+      "avatar rating";
+    align-items: start;
+  }
+
+  .home-page .review-avatar {
+    grid-area: avatar;
+  }
+
+  .home-page .review-title-block {
+    grid-area: title;
+    margin-right: 0;
+  }
+
+  .home-page .review-rating {
+    grid-area: rating;
+    justify-self: start;
+  }
 }
 
 @media (max-width: 425px) {
