@@ -2696,6 +2696,14 @@ textarea:focus-visible {
   .nav-mobile-book .btn {
     width: 100%;
     margin-top: 0.35rem;
+  }
+
+  .nav-links .nav-mobile-book > a.btn,
+  .nav-links .nav-mobile-book > a.btn:hover,
+  .nav-links .nav-mobile-book > a.btn:focus-visible,
+  .home-page .nav-links .nav-mobile-book > a.btn,
+  .home-page .nav-links .nav-mobile-book > a.btn:hover,
+  .home-page .nav-links .nav-mobile-book > a.btn:focus-visible {
     color: #fff;
   }
 
