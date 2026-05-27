@@ -532,6 +532,7 @@ function initAmbientMotion() {
 
 window.observeRevealElements = observeRevealElements;
 observeRevealElements();
+initBookingPackageOptions?.();
 initBookingPackagePrefill();
 initLeaveReviewForm();
 initBookingFormValidation();

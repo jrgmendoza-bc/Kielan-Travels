@@ -2291,7 +2291,7 @@ textarea:focus-visible {
 
 .home-page .featured-moments {
   position: relative;
-  background: linear-gradient(180deg, #4168b7 0%, #1f4eab 28%, #0c3f9f 62%, #063283 100%);
+  background: #000;
 }
 
 .home-page .featured-moments::before,
@@ -2303,23 +2303,11 @@ textarea:focus-visible {
 }
 
 .home-page .featured-moments::before {
-  inset: 0.7rem;
-  border-radius: 18px;
-  border: 1px solid rgba(143, 232, 255, 0.24);
-  clip-path: inset(0 100% 0 0 round 18px);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
-    0 0 24px rgba(143, 232, 255, 0.08);
-  animation: drawFrame 2.8s ease forwards;
+  content: none;
 }
 
 .home-page .featured-moments::after {
-  inset: 1.3rem 1rem 1rem;
-  border-radius: 14px;
-  border-bottom: 1px solid rgba(143, 232, 255, 0.55);
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-  clip-path: inset(0 100% 0 0 round 14px);
-  animation: drawUnderline 2.2s 0.35s ease forwards;
+  content: none;
 }
 
 .home-page .featured-moments .container {
@@ -2357,8 +2345,8 @@ textarea:focus-visible {
 
 .home-page .moments-carousel {
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.23);
-  background: linear-gradient(180deg, rgba(4, 24, 63, 0.05), rgba(255, 255, 255, 0.02));
+  border: 0;
+  background: #000;
 }
 .home-page .moments-track {
   min-height: clamp(280px, 40vw, 460px);
@@ -2375,7 +2363,7 @@ textarea:focus-visible {
 }
 .home-page .moment-caption {
   padding: 1.1rem 1.2rem 1rem;
-  background: linear-gradient(180deg, rgba(5, 24, 62, 0.04) 0%, rgba(4, 25, 66, 0.86) 74%, rgba(2, 14, 40, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.9) 74%, #000 100%);
 }
 .home-page .moment-caption p {
   margin: 0.35rem 0 0;
@@ -2385,18 +2373,15 @@ textarea:focus-visible {
 }
 
 .home-page .moments-carousel::before {
-  inset: 0.35rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  clip-path: inset(0 100% 0 0 round 12px);
-  animation: drawFrame 2.6s 0.15s ease forwards;
+  content: none;
 }
 
 .home-page .moment-control {
   width: 46px;
   height: 46px;
   background: rgba(4, 24, 63, 0.68);
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.8);
+  color: #fff;
   box-shadow: 0 12px 18px rgba(4, 12, 34, 0.26);
   backdrop-filter: blur(4px);
 }
@@ -2412,7 +2397,7 @@ textarea:focus-visible {
 }
 .home-page .moment-dot.is-active {
   background: #fff;
-  box-shadow: 0 0 0 4px rgba(143, 232, 255, 0.25);
+  box-shadow: none;
 }
 .home-page .testimonials-grid {
   margin-top: 1rem;

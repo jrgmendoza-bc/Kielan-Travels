@@ -16,7 +16,7 @@
   />
   <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
   <link rel="apple-touch-icon" href="assets/logo.jpg" />
-  <link rel="stylesheet" href="styles.css?v=20260523" />
+  <link rel="stylesheet" href="styles.css?v=20260525" />
 </head>
 <body class="home-page">
   <header class="site-header" id="top">
@@ -90,7 +90,7 @@
               required
             />
 
-            <label for="booking-package">Preferred Package</label>
+            <label for="booking-package">Choose Package</label>
             <select id="booking-package" name="package" required>
               <option value="">Select a package</option>
               <option value="baguio-city">Baguio City Tour</option>
@@ -212,7 +212,14 @@
               <h4>GCash</h4>
               <p><strong>Account Name:</strong> Jimi Ruel Awingan</p>
               <p><strong>Account Number:</strong> +639271481795</p>
-              <div class="qr-placeholder-box" aria-hidden="true">GCash QR Available</div>
+              <img
+                class="payment-qr-image"
+                src="assets/images/payments/GCASH.jpg"
+                alt="GCash QR code for Kielan Travels reservation payment"
+                onerror="this.style.display='none'"
+                loading="lazy"
+                decoding="async"
+              />
             </article>
           </div>
         </article>

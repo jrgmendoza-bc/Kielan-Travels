@@ -5,6 +5,7 @@ const PACKAGE_DATA = [
     location: 'Baguio City, Benguet',
     durationLabel: 'Day Tour',
     durationType: 'day',
+    category: 'Day Tour',
     price: 1799,
     priceLabel: 'PHP 1,799 / pax',
     image: 'assets/images/destinations/baguio-burnham.png',
@@ -39,11 +40,6 @@ const PACKAGE_DATA = [
       'Bring a light jacket; weather may change quickly in the afternoon.',
       'Weekends are high traffic in Baguio, so keep itinerary flexibility.'
     ],
-    priceBreakdown: [
-      'Base package rate: PHP 1,500',
-      'Transport and fuel allocation: PHP 180',
-      'Parking and route coordination: PHP 119'
-    ]
   },
   {
     id: 'atok-tour',
@@ -51,6 +47,7 @@ const PACKAGE_DATA = [
     location: 'Atok, Benguet',
     durationLabel: 'Day Tour',
     durationType: 'day',
+    category: 'Day Tour',
     price: 2399,
     priceLabel: 'PHP 2,399 / pax',
     image: 'assets/images/destinations/atok-flower-mountain.png',
@@ -84,11 +81,6 @@ const PACKAGE_DATA = [
       'Departure is early to maximize sea-of-clouds chances.',
       'Roads are mountainous; motion-sickness medicine is recommended if needed.'
     ],
-    priceBreakdown: [
-      'Base package rate: PHP 1,950',
-      'Long-route transport and fuel: PHP 330',
-      'Coordination and trip support: PHP 119'
-    ]
   },
   {
     id: 'sagada-tour',
@@ -96,6 +88,7 @@ const PACKAGE_DATA = [
     location: 'Sagada, Mountain Province',
     durationLabel: '2 Days / 1 Night',
     durationType: '2d1n',
+    category: '2 Days / 1 Night',
     price: 4899,
     priceLabel: 'PHP 4,899 / pax',
     image: 'assets/images/destinations/sagada-sea-of-clouds.png',
@@ -130,11 +123,6 @@ const PACKAGE_DATA = [
       'Some attractions require local guide dispatch and queue time.',
       'Signal can be unstable in mountain areas; inform contacts in advance.'
     ],
-    priceBreakdown: [
-      'Base package rate: PHP 3,700',
-      'Accommodation allocation: PHP 700',
-      'Transport and coordination: PHP 499'
-    ]
   },
   {
     id: 'baler-tour',
@@ -142,6 +130,7 @@ const PACKAGE_DATA = [
     location: 'Baler, Aurora',
     durationLabel: '3 Days / 2 Nights',
     durationType: '3d2n',
+    category: '3 Days / 2 Nights',
     price: 5199,
     priceLabel: 'PHP 5,199 / pax',
     image: 'assets/images/destinations/Baler_DicasalarinCove.png',
@@ -178,11 +167,6 @@ const PACKAGE_DATA = [
       'Road travel is long; bring travel pillow and hydration.',
       'Surf lessons are optional and paid separately onsite.'
     ],
-    priceBreakdown: [
-      'Base package rate: PHP 3,900',
-      'Accommodation allocation: PHP 750',
-      'Long-route transport and support: PHP 549'
-    ]
   },
   {
     id: 'banaue-batad',
@@ -190,6 +174,7 @@ const PACKAGE_DATA = [
     location: 'Ifugao Province',
     durationLabel: '3 Days / 2 Nights',
     durationType: '3d2n',
+    category: '3 Days / 2 Nights',
     price: 7699,
     priceLabel: 'PHP 7,699 / pax',
     image: 'assets/images/destinations/download.png',
@@ -224,11 +209,6 @@ const PACKAGE_DATA = [
       'Some areas require moderate walking on sloped terrain.',
       'Carry cash for local fees and small community stores.'
     ],
-    priceBreakdown: [
-      'Base package rate: PHP 5,550',
-      'Accommodation allocation: PHP 1,350',
-      'Transport and coordination support: PHP 799'
-    ]
   }
 ];
 
@@ -702,11 +682,15 @@ function renderPackageCards(items) {
               <dd>${escapeHtml(pkg.location)}</dd>
             </div>
             <div>
+              <dt>Package type</dt>
+              <dd>${escapeHtml(pkg.category)}</dd>
+            </div>
+            <div>
               <dt>Duration</dt>
               <dd>${escapeHtml(pkg.durationLabel)}</dd>
             </div>
             <div>
-              <dt>Price</dt>
+              <dt>Rate</dt>
               <dd>${escapeHtml(pkg.priceLabel)}</dd>
             </div>
           </dl>
@@ -778,16 +762,50 @@ function initPackageFilters() {
   renderPackageCards(PACKAGE_DATA);
 }
 
+function initBookingPackageOptions() {
+  const packageSelect = document.querySelector('#booking-package');
+  if (!packageSelect) {
+    return;
+  }
+
+  const groupedPackages = PACKAGE_DATA.reduce((groups, pkg) => {
+    if (!groups[pkg.category]) {
+      groups[pkg.category] = [];
+    }
+    groups[pkg.category].push(pkg);
+    return groups;
+  }, {});
+
+  packageSelect.innerHTML = `
+    <option value="">Select a package</option>
+    ${Object.entries(groupedPackages)
+      .map(
+        ([category, packages]) => `
+          <optgroup label="${escapeHtml(category)}">
+            ${packages
+              .map(
+                (pkg) => `<option value="${escapeHtml(pkg.id)}">${escapeHtml(pkg.title)}</option>`
+              )
+              .join('')}
+          </optgroup>
+        `
+      )
+      .join('')}
+  `;
+
+  initBookingPackagePrefill();
+}
+
 function buildDetailsSection(pkg) {
   return `
     <article class="details-banner reveal">
       <img src="${escapeHtml(pkg.image)}" alt="${escapeHtml(pkg.title)} banner image" loading="eager" decoding="async" />
       <div class="details-banner-content">
-        <p class="eyebrow">Package Details</p>
+        <p class="eyebrow">Package Overview</p>
         <h1>${escapeHtml(pkg.title)}</h1>
         <p>${escapeHtml(pkg.fullDescription)}</p>
         <div class="details-top-meta">
-          <span><strong>Location:</strong> ${escapeHtml(pkg.location)}</span>
+          <span><strong>Package type:</strong> ${escapeHtml(pkg.category)}</span>
           <span><strong>Duration:</strong> ${escapeHtml(pkg.durationLabel)}</span>
           <span><strong>Rate:</strong> ${escapeHtml(pkg.priceLabel)}</span>
         </div>
@@ -797,60 +815,47 @@ function buildDetailsSection(pkg) {
     <section class="details-grid section-inner">
       <div class="details-main">
         <article class="details-card reveal">
-          <h2>Itinerary</h2>
-          <ul>
-            ${pkg.itinerary.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
-          </ul>
-        </article>
-
-        <article class="details-card reveal">
-          <h2>Travel Reminders</h2>
-          <ul>
-            ${pkg.reminders.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
-          </ul>
-        </article>
-
-        <article class="details-card reveal">
-          <h2>Terms and Booking Notes</h2>
-          <ul>
-            <li>Rates may change depending on season and supplier updates.</li>
-            <li>Slots are subject to availability at the time of confirmation.</li>
-            <li>Itinerary may adjust due to weather or local destination advisories.</li>
-            <li>Cancellation or rescheduling policies may apply based on lead time.</li>
-            <li>Final confirmation is provided after inquiry review and schedule validation.</li>
-          </ul>
-        </article>
-      </div>
-
-      <aside class="details-side">
-        <article class="details-card reveal">
-          <h2>Inclusions</h2>
+          <h2>Package Inclusions</h2>
           <ul>
             ${pkg.inclusions.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
           </ul>
         </article>
 
         <article class="details-card reveal">
-          <h2>Exclusions</h2>
+          <h2>Package Exclusions</h2>
           <ul>
             ${pkg.exclusions.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
           </ul>
         </article>
 
         <article class="details-card reveal">
-          <h2>Price Breakdown</h2>
+          <h2>Sites to Visit</h2>
           <ul>
-            ${pkg.priceBreakdown.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+            ${pkg.itinerary.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
           </ul>
-          <p class="details-total">Estimated Total: ${formatPrice(pkg.price)} / pax</p>
-          <a class="btn btn-primary" href="booking.html?package=${encodeURIComponent(pkg.id)}">Send Booking Inquiry</a>
+        </article>
+
+        <article class="details-card reveal">
+          <h2>Important Notes</h2>
+          <ul>
+            ${pkg.reminders.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+            <li>All site visits are planned to fit the itinerary, but may change due to traffic, weather, or guest timing.</li>
+          </ul>
+        </article>
+      </div>
+
+      <aside class="details-side">
+        <article class="details-card reveal">
+          <h2>Booking Information</h2>
+          <p>Choose your preferred travel date and group size in the booking inquiry. Our team will confirm availability and next steps after submission.</p>
+          <a class="btn btn-primary" href="booking.html?package=${encodeURIComponent(pkg.id)}">Book This Package</a>
         </article>
       </aside>
     </section>
 
     <section class="section-inner">
       <article class="details-card reveal">
-        <h2>Reviews For This Package</h2>
+        <h2>Reviews for This Package</h2>
         <div id="package-review-grid" class="grid cards-3" aria-live="polite"></div>
       </article>
     </section>
@@ -1091,6 +1096,7 @@ function initApprovedReviewsSection() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initPackageFilters();
+  initBookingPackageOptions();
   renderReviewCards('#home-reviews-grid', { limit: 4, sourceReviews: FEATURED_HOME_REVIEWS, gridClass: 'cards-4' });
   initApprovedReviewsSection();
   renderPackageDetails();
