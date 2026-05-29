@@ -82,11 +82,11 @@
               id="booking-phone"
               name="phone"
               type="tel"
-              placeholder="09xx-xxx-xxxx"
+              placeholder="(63+)xxx-xxx-xxxx"
               inputmode="numeric"
               pattern="09\d{2}-\d{3}-\d{4}"
               maxlength="13"
-              title="Use this format: 09xx-xxx-xxxx"
+              title="Use this format: (63+)xxx-xxx-xxxx"
               required
             />
 
@@ -99,6 +99,23 @@
               <option value="baler-tour">Baler Tour</option>
               <option value="banaue-batad">Banaue / Batad Tour</option>
             </select>
+
+            <label for="booking-pickup">Pickup Option</label>
+            <select id="booking-pickup" name="pickup" required>
+              <option value="">Select pickup option</option>
+              <option value="Baguio Pick-up & Drop">Baguio Pick-up & Drop</option>
+              <option value="Manila Pick-up & Drop">Manila Pick-up & Drop</option>
+              <option value="other">Other / Please specify</option>
+            </select>
+
+            <label for="booking-pickup-custom">Custom Pickup Location</label>
+            <input
+              id="booking-pickup-custom"
+              name="pickup_custom"
+              type="text"
+              placeholder="Tell us your preferred pickup area (Price may Vary)"
+              hidden
+            />
 
             <div class="form-row-two">
               <div>
@@ -259,7 +276,7 @@
       </div>
       <div>
         <h4>Contact</h4>
-        <p>Phone: 0999 881 6463</p>
+        <p>Phone: +63 999 881 6463</p>
         <p>Email: kielan1929@gmail.com</p>
         <p>Address: Km 4 Asin Road, Baguio City, Philippines, 2600</p>
       </div>
@@ -272,6 +289,6 @@
     <p class="copyright">© 2026 Kielan Travels Travel and Tours. All rights reserved.</p>
   </footer>
 
-  <script src="script.js?v=20260522"></script>
+  <script src="script.js?v=20260530"></script>
 </body>
 </html>

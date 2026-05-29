@@ -94,21 +94,34 @@ function observeRevealElements() {
 
 function initBookingPackagePrefill() {
   const bookingPackageField = document.querySelector('#booking-package');
-  if (!bookingPackageField) {
+  const bookingPickupField = document.querySelector('#booking-pickup');
+
+  if (!bookingPackageField && !bookingPickupField) {
     return;
   }
 
-  const packageFromUrl = new URLSearchParams(window.location.search).get('package');
-  if (!packageFromUrl) {
-    return;
+  const params = new URLSearchParams(window.location.search);
+  const packageFromUrl = params.get('package');
+  const pickupFromUrl = params.get('pickup');
+
+  if (bookingPackageField && packageFromUrl) {
+    const optionExists = Array.from(bookingPackageField.options).some(
+      (option) => option.value === packageFromUrl
+    );
+
+    if (optionExists) {
+      bookingPackageField.value = packageFromUrl;
+    }
   }
 
-  const optionExists = Array.from(bookingPackageField.options).some(
-    (option) => option.value === packageFromUrl
-  );
+  if (bookingPickupField && pickupFromUrl) {
+    const optionExists = Array.from(bookingPickupField.options).some(
+      (option) => option.value === pickupFromUrl
+    );
 
-  if (optionExists) {
-    bookingPackageField.value = packageFromUrl;
+    if (optionExists) {
+      bookingPickupField.value = pickupFromUrl;
+    }
   }
 }
 
@@ -145,6 +158,8 @@ function initBookingFormValidation() {
   const emailField = bookingForm.querySelector('#booking-email');
   const phoneField = bookingForm.querySelector('#booking-phone');
   const packageField = bookingForm.querySelector('#booking-package');
+  const pickupField = bookingForm.querySelector('#booking-pickup');
+  const pickupCustomField = bookingForm.querySelector('#booking-pickup-custom');
   const dateField = bookingForm.querySelector('#booking-date');
   const paxField = bookingForm.querySelector('#booking-pax');
 
@@ -200,6 +215,31 @@ function initBookingFormValidation() {
     }
     return 'Please select a package from the list.';
   });
+
+  setFriendlyValidation(pickupField, (validity) => {
+    if (validity.valueMissing) {
+      return 'Please select the pickup option.';
+    }
+    return 'Please select a pickup option from the list.';
+  });
+
+  const toggleCustomPickup = () => {
+    if (!pickupCustomField) {
+      return;
+    }
+
+    const shouldShow = pickupField?.value === 'other';
+    pickupCustomField.hidden = !shouldShow;
+    pickupCustomField.required = shouldShow;
+
+    if (!shouldShow) {
+      pickupCustomField.value = '';
+      pickupCustomField.setCustomValidity('');
+    }
+  };
+
+  pickupField?.addEventListener('change', toggleCustomPickup);
+  toggleCustomPickup();
 
   if (phoneField) {
     const formatMobileNumber = (value) => {
@@ -532,7 +572,11 @@ function initAmbientMotion() {
 
 window.observeRevealElements = observeRevealElements;
 observeRevealElements();
-initBookingPackageOptions?.();
+
+if (typeof initBookingPackageOptions === 'function') {
+  initBookingPackageOptions();
+}
+
 initBookingPackagePrefill();
 initLeaveReviewForm();
 initBookingFormValidation();

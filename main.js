@@ -8,6 +8,7 @@ const PACKAGE_DATA = [
     category: 'Day Tour',
     price: 1799,
     priceLabel: 'PHP 1,799 / pax',
+    pickupOptions: ['Baguio Pick-up & Drop'],
     image: 'assets/images/destinations/baguio-burnham.png',
     shortDescription:
       'A relaxed city route covering Baguio landmarks, parks, and food stops perfect for first-time visitors.',
@@ -50,6 +51,7 @@ const PACKAGE_DATA = [
     category: 'Day Tour',
     price: 2399,
     priceLabel: 'PHP 2,399 / pax',
+    pickupOptions: ['Baguio Pick-up & Drop'],
     image: 'assets/images/destinations/atok-flower-mountain.png',
     shortDescription:
       'Highland day trip featuring sea-of-clouds viewpoints, flower farms, and cool mountain landscapes.',
@@ -91,6 +93,7 @@ const PACKAGE_DATA = [
     category: '2 Days / 1 Night',
     price: 4899,
     priceLabel: 'PHP 4,899 / pax',
+    pickupOptions: ['Baguio Pick-up & Drop', 'Manila Pick-up & Drop'],
     image: 'assets/images/destinations/sagada-sea-of-clouds.png',
     shortDescription:
       'A culture and nature escape with caves, viewpoints, and local community experiences in Sagada.',
@@ -133,6 +136,7 @@ const PACKAGE_DATA = [
     category: '3 Days / 2 Nights',
     price: 5199,
     priceLabel: 'PHP 5,199 / pax',
+    pickupOptions: ['Baguio Pick-up & Drop'],
     image: 'assets/images/destinations/Baler_DicasalarinCove.png',
     shortDescription:
       'Coastal escape with beach time, local history stops, and optional beginner-friendly surf sessions.',
@@ -177,6 +181,7 @@ const PACKAGE_DATA = [
     category: '3 Days / 2 Nights',
     price: 7699,
     priceLabel: 'PHP 7,699 / pax',
+    pickupOptions: ['Baguio Pick-up & Drop', 'Manila Pick-up & Drop'],
     image: 'assets/images/destinations/download.png',
     shortDescription:
       'Multi-day Cordillera heritage journey featuring iconic rice terraces and mountain village immersion.',
@@ -694,11 +699,19 @@ function renderPackageCards(items) {
               <dd>${escapeHtml(pkg.priceLabel)}</dd>
             </div>
           </dl>
-          <h4>Inclusions Preview</h4>
-          <ul class="preview-list">${createInclusionsPreview(pkg.inclusions)}</ul>
+          <div class="card-content">
+            <h4>Inclusions Preview</h4>
+            <ul class="preview-list">${createInclusionsPreview(pkg.inclusions)}</ul>
+          </div>
+          <div class="package-book-picker">
+            <label for="pickup-${escapeHtml(pkg.id)}">Pickup option</label>
+            <select id="pickup-${escapeHtml(pkg.id)}" class="package-book-select" aria-label="Choose pickup option for ${escapeHtml(pkg.title)}">
+              ${(pkg.pickupOptions || ['Baguio Pick-up & Drop']).map((option) => `<option value="${escapeHtml(option)}">${escapeHtml(option)}</option>`).join('')}
+            </select>
+          </div>
           <div class="card-actions">
             <a class="btn btn-outline" href="package-details.html?id=${encodeURIComponent(pkg.id)}">View Details</a>
-            <a class="btn btn-primary" href="booking.html?package=${encodeURIComponent(pkg.id)}">Book Now</a>
+            <button class="btn btn-primary package-book-btn" type="button" data-package-id="${escapeHtml(pkg.id)}">Book Now</button>
           </div>
         </div>
       </article>
@@ -709,6 +722,34 @@ function renderPackageCards(items) {
   if (typeof window.observeRevealElements === 'function') {
     window.observeRevealElements();
   }
+
+  attachPackageBookingHandlers();
+}
+
+function attachPackageBookingHandlers() {
+  document.querySelectorAll('.package-book-btn').forEach((button) => {
+    if (button.dataset.packageBookingBound === 'true') {
+      return;
+    }
+
+    button.addEventListener('click', (event) => {
+      const packageId = button.dataset.packageId;
+      const card = button.closest('.package-browser-card');
+      const pickupSelect = card?.querySelector('.package-book-select');
+      const pickupValue = pickupSelect?.value || '';
+      const bookingUrl = new URL('booking.html', window.location.href);
+
+      bookingUrl.searchParams.set('package', packageId || '');
+      if (pickupValue) {
+        bookingUrl.searchParams.set('pickup', pickupValue);
+      }
+
+      window.location.assign(bookingUrl.toString());
+      event.preventDefault();
+    });
+
+    button.dataset.packageBookingBound = 'true';
+  });
 }
 
 function initPackageFilters() {
