@@ -128,48 +128,89 @@ const PACKAGE_DATA = [
     ],
   },
   {
-    id: 'baler-tour',
-    title: 'Baler Tour',
-    location: 'Baler, Aurora',
+    id: 'ilocos-tour',
+    title: 'Ilocos Tour',
+    location: 'Ilocos Region',
     durationLabel: '3 Days / 2 Nights',
     durationType: '3d2n',
     category: '3 Days / 2 Nights',
     price: 5199,
     priceLabel: 'PHP 5,199 / pax',
     pickupOptions: ['Baguio Pick-up & Drop'],
-    image: 'assets/images/destinations/Baler_DicasalarinCove.png',
+    image: 'assets/images/destinations/Patar.png',
     shortDescription:
-      'Coastal escape with beach time, local history stops, and optional beginner-friendly surf sessions.',
+      'Complete Ilocos tour package with comfortable transport, accommodations, and major sightseeing stops.',
     fullDescription:
-      'This Baler Tour package is tailored for guests who want a refreshing coastline break from the highlands. The trip includes beach leisure windows, lighthouse and heritage stops, and optional surf sessions for first-timers.',
+      'This 3D2N Ilocos Tour package includes van transfer, two nights private air-conditioned room accommodation, and a complete region tour itinerary with route coordination and environmental fee.',
     inclusions: [
-      'Roundtrip transport from Baguio to Baler',
-      '2-night accommodation near Sabang area',
-      'Tour route and schedule coordination',
-      'Driver guide and group assistance'
+      'Round trip van transfer',
+      'Driver/coordinator, gas, toll & parking fee',
+      'Two nights private air-conditioned room accommodation',
+      'Environmental fee',
+      'Complete Ilocos tour package'
     ],
     exclusions: [
-      'Surf lesson and board rental fees',
-      'Meals and beverages',
-      'Entrance fees for optional attractions',
-      'Personal travel insurance'
+      'All meals',
+      'Entrance fees',
+      'All payment for optional activity such as 4x4 ride at Sand Dunes, Kalesa ride in Vigan, Ride inside Baluarte Zoo'
     ],
     itinerary: [
-      'Day 1 01:00 AM - Departure from Baguio',
-      'Day 1 09:00 AM - Arrival and breakfast near the coast',
-      'Day 1 11:00 AM - Ditumabo area visit and nature stop',
-      'Day 1 03:00 PM - Sabang beach free time and sunset',
-      'Day 1 07:00 PM - Check-in and dinner',
-      'Day 2 06:00 AM - Lighthouse viewpoint and photo stop',
-      'Day 2 09:00 AM - Optional surf session or cafe break',
-      'Day 2 04:30 PM - Dinner and overnight stay in Baler',
-      'Day 3 07:00 AM - Breakfast and checkout',
-      'Day 3 09:00 AM - Return travel to Baguio'
+      'Day 1 05:00 AM - Departure from Baguio to Ilocos',
+      'Day 1 10:00 AM - Laoag and heritage route',
+      'Day 1 01:00 PM - Lunch stop and local market quick tour',
+      'Day 1 03:00 PM - Paoay Church and sand dunes photo stop',
+      'Day 1 07:00 PM - Check-in and evening rest',
+      'Day 2 08:00 AM - Vigan city tour and heritage walk',
+      'Day 2 12:00 PM - Lunch and optional kalesa sight-seeing',
+      'Day 2 03:00 PM - Local attractions and leisure time',
+      'Day 3 08:00 AM - Final local tour and departure back to Baguio'
     ],
     reminders: [
-      'Pack quick-dry clothes and sun protection.',
-      'Road travel is long; bring travel pillow and hydration.',
-      'Surf lessons are optional and paid separately onsite.'
+      'Bring hats, sunscreen, and comfortable footwear.',
+      'Optional activities are paid separately onsite.',
+      'Carry cash for small local fees and meals.'
+    ],
+  },
+  {
+    id: 'bolinao-100-islands',
+    title: 'Bolinao - 100 Islands',
+    location: 'Bolinao, Pangasinan',
+    durationLabel: '2 Days / 1 Night',
+    durationType: '2d1n',
+    category: '2 Days / 1 Night',
+    price: 4499,
+    priceLabel: 'PHP 4,499 / pax',
+    pickupOptions: ['Baguio Pick-up & Drop', 'Manila Pick-up & Drop'],
+    image: 'assets/images/destinations/Bolinao.png',
+    shortDescription:
+      'Island-hopping escape to Bolinao with overnight accommodation and boat rental included.',
+    fullDescription:
+      'Enjoy a coastal Bolinao adventure with boat island-hopping, private overnight accommodation, and convenient trip coordination for a relaxed 2-day escape.',
+    inclusions: [
+      'Round trip van transfer',
+      'Driver, gas, parking fee',
+      'Overnight private accommodation',
+      'Boat rental for island hopping',
+      'Registration fee'
+    ],
+    exclusions: [
+      'All meals',
+      'Rentals of swimming gears (optional)',
+      'Entrance fees at Enchanted Cave and Bolinao Falls 1 (optional)',
+      'Anything not mentioned in the inclusions'
+    ],
+    itinerary: [
+      'Day 1 05:00 AM - Pickup and transfer to Bolinao',
+      'Day 1 11:00 AM - Arrival and check-in at accommodation',
+      'Day 1 01:00 PM - Afternoon island hopping around the 100 Islands',
+      'Day 1 05:00 PM - Sunset and dinner at the bay',
+      'Day 2 08:00 AM - Optional local sightseeing and cave visit',
+      'Day 2 12:00 PM - Checkout and return travel to Baguio'
+    ],
+    reminders: [
+      'Bring swimwear, towel, and sun protection.',
+      'Optional swimming gear rentals are available onsite.',
+      'Keep a copy of registration and boat rental details for convenience.'
     ],
   },
   {
@@ -691,7 +732,7 @@ function renderPackageCards(items) {
               <dd>${escapeHtml(pkg.category)}</dd>
             </div>
             <div>
-              <dt>Duration</dt>
+              <dt>Days / Nights</dt>
               <dd>${escapeHtml(pkg.durationLabel)}</dd>
             </div>
             <div>
@@ -702,12 +743,6 @@ function renderPackageCards(items) {
           <div class="card-content">
             <h4>Inclusions Preview</h4>
             <ul class="preview-list">${createInclusionsPreview(pkg.inclusions)}</ul>
-          </div>
-          <div class="package-book-picker">
-            <label for="pickup-${escapeHtml(pkg.id)}">Pickup option</label>
-            <select id="pickup-${escapeHtml(pkg.id)}" class="package-book-select" aria-label="Choose pickup option for ${escapeHtml(pkg.title)}">
-              ${(pkg.pickupOptions || ['Baguio Pick-up & Drop']).map((option) => `<option value="${escapeHtml(option)}">${escapeHtml(option)}</option>`).join('')}
-            </select>
           </div>
           <div class="card-actions">
             <a class="btn btn-outline" href="package-details.html?id=${encodeURIComponent(pkg.id)}">View Details</a>
