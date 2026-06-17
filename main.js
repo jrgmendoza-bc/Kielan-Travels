@@ -648,7 +648,24 @@ function formatPrice(amount) {
 }
 
 function getPackageById(id) {
-  return PACKAGE_DATA.find((item) => item.id === id);
+  // First, look for a direct match
+  const directMatch = PACKAGE_DATA.find((item) => item.id === id);
+  if (directMatch) {
+    return directMatch;
+  }
+  
+  // If not found, search in packageOptions (nested variants)
+  for (const pkg of PACKAGE_DATA) {
+    if (pkg.packageOptions && Array.isArray(pkg.packageOptions)) {
+      const variantMatch = pkg.packageOptions.find((opt) => opt.id === id);
+      if (variantMatch) {
+        // Return the parent package with variants, so dropdown works
+        return pkg;
+      }
+    }
+  }
+  
+  return undefined;
 }
 
 function renderStars(rating) {
@@ -1143,7 +1160,22 @@ function renderPackageDetails() {
     return;
   }
 
-  const activeOption = selectedPackage.packageOptions?.[0] || selectedPackage;
+  // If packageId is a nested variant, use that. Otherwise use first option or the package itself.
+  let selectedVariantId = null;
+  if (selectedPackage.packageOptions && Array.isArray(selectedPackage.packageOptions)) {
+    const isNestedVariant = selectedPackage.packageOptions.some(opt => opt.id === packageId);
+    if (isNestedVariant) {
+      selectedVariantId = packageId;
+    }
+  }
+
+  const activeOption = selectedPackage.packageOptions && selectedPackage.packageOptions.length > 0
+    ? (selectedVariantId 
+        ? selectedPackage.packageOptions.find(opt => opt.id === selectedVariantId)
+        : selectedPackage.packageOptions[0]
+      ) || selectedPackage.packageOptions[0]
+    : selectedPackage;
+  
   document.title = `${activeOption.title} | Kielan Travels`;
   
   // Build the dropdown selector if package has options
@@ -1153,13 +1185,13 @@ function renderPackageDetails() {
     <div class="package-option-selector reveal" style="margin-bottom: 30px; padding: 20px; background: #f5f5f5; border-radius: 8px;">
       <label for="package-option-select" style="display: block; margin-bottom: 10px; font-weight: 600; font-size: 16px;">Choose Your Package Type:</label>
       <select id="package-option-select" class="package-option-select" style="width: 100%; max-width: 500px; padding: 12px; font-size: 16px; border: 2px solid #0066cc; border-radius: 4px; cursor: pointer; font-weight: 500;">
-        ${selectedPackage.packageOptions.map((opt, idx) => `<option value="${escapeHtml(opt.id)}" ${idx === 0 ? 'selected' : ''}>${escapeHtml(opt.title)}</option>`).join('')}
+        ${selectedPackage.packageOptions.map((opt) => `<option value="${escapeHtml(opt.id)}" ${opt.id === (selectedVariantId || selectedPackage.packageOptions[0].id) ? 'selected' : ''}>${escapeHtml(opt.title)}</option>`).join('')}
       </select>
     </div>
     `;
   }
   
-  root.innerHTML = selectorMarkup + buildDetailsSection(selectedPackage);
+  root.innerHTML = selectorMarkup + buildDetailsSection(selectedPackage, selectedVariantId);
   renderReviewCards('#package-review-grid', { limit: 3 });
 
   if (typeof window.observeRevealElements === 'function') {
@@ -1179,6 +1211,11 @@ function renderPackageDetails() {
         if (banner) banner.remove();
         if (detailsGrid) detailsGrid.remove();
         if (reviewsSection) reviewsSection.remove();
+        
+        // Update URL to reflect selected variant
+        const newUrl = new URL(window.location);
+        newUrl.searchParams.set('id', selectedOptionId);
+        window.history.replaceState({}, '', newUrl);
         
         const newContent = buildDetailsSection(selectedPackage, selectedOptionId);
         root.insertAdjacentHTML('beforeend', newContent);
