@@ -1,98 +1,87 @@
 const PACKAGE_DATA = [
   {
     id: 'baguio-city',
-    title: 'Baguio City Tour (Exclusive Group)',
+    title: 'Baguio City Tour',
     location: 'Baguio City, Benguet',
     durationLabel: 'Day Tour',
     durationType: 'day',
     category: 'Day Tour',
-    price: 6000,
-    priceLabel: 'PHP 6,000 / exclusive group',
+    price: 1799,
+    priceLabel: 'PHP 1,799 / pax',
     pickupOptions: ['Baguio Pick-up & Drop'],
     image: 'assets/images/destinations/baguio-burnham.png',
     shortDescription:
-      'Complete Baguio City tour covering landmarks, parks, and scenic viewpoints in one full day.',
+      'A relaxed city route covering Baguio landmarks, parks, and food stops perfect for first-time visitors.',
     fullDescription:
-      'This Baguio City Tour package provides a comprehensive city experience visiting all major attractions and scenic spots. Our van service with courteous driver ensures comfortable travel while you explore Baguio\'s most iconic destinations.',
+      'This Baguio City Tour package is designed for travelers who want a complete yet comfortable city experience in one day. Expect a balanced itinerary with classic viewpoints, heritage stops, market visits, and flexible meal breaks.',
     inclusions: [
-      'Roundtrip van for shuttle service',
-      'Courteous driver for the entire tour',
-      'Parking fees',
-      'Diesel/fuel for roundtrip travel'
+      'Roundtrip tour transport within Baguio city proper',
+      'Driver guide and route coordination',
+      'Fuel, parking, and environmental fees',
+      'Photo-stop assistance and timing support'
     ],
     exclusions: [
-      'All meals and snacks',
-      'Entrance fees to attractions'
+      'Meals and personal snacks',
+      'Entrance fees not listed by optional attractions',
+      'Personal travel insurance',
+      'Souvenirs and shopping expenses'
     ],
     itinerary: [
       '08:00 AM - Pickup at agreed meeting point in Baguio',
-      '08:30 AM - Strawberry Farm visit and photos',
-      '10:00 AM - Color of Stobosa stopover',
-      '10:45 AM - Stone Kingdom tour',
-      '12:00 PM - Tam-awan Village exploration',
-      '01:00 PM - Diplomat Hotel viewpoint',
-      '01:30 PM - Lourdes Grotto visit',
-      '02:30 PM - Mirador Hills scenic stop',
-      '03:00 PM - Burnham Park and Wright Park',
-      '04:00 PM - The Mansion stopover',
-      '04:30 PM - Botanical Garden',
-      '05:00 PM - Mines View Park',
-      '05:30 PM - Good Shepherd Cathedral',
-      '06:00 PM - Kennon Road View Deck',
-      '06:30 PM - Lion\'s Head viewpoint',
-      '07:00 PM - PMA (if available)',
-      '07:30 PM - Return to pickup point'
+      '08:30 AM - Burnham Park and early city orientation',
+      '10:00 AM - The Mansion and Wright Park stopover',
+      '11:30 AM - Mines View area and souvenir center',
+      '01:00 PM - Lunch break near city center',
+      '02:30 PM - Botanical Garden and nearby scenic spots',
+      '04:00 PM - Session Road free time and optional coffee stop',
+      '05:30 PM - Drop-off at agreed location'
     ],
     reminders: [
-      'All major sites are possible to visit in 1 day but depend on traffic conditions, weather, and time frame',
-      'Wear comfortable walking shoes for stops',
-      'Bring a light jacket and sunscreen',
-      'Weekends may have higher traffic; plan accordingly'
+      'Wear comfortable walking shoes for park and market stops.',
+      'Bring a light jacket; weather may change quickly in the afternoon.',
+      'Weekends are high traffic in Baguio, so keep itinerary flexibility.'
     ],
   },
   {
     id: 'atok-tour',
-    title: 'Atok Day Tour (Exclusive Group)',
+    title: 'Atok Tour',
     location: 'Atok, Benguet',
     durationLabel: 'Day Tour',
     durationType: 'day',
     category: 'Day Tour',
-    price: 7000,
-    priceLabel: 'PHP 7,000 / exclusive group',
+    price: 2399,
+    priceLabel: 'PHP 2,399 / pax',
     pickupOptions: ['Baguio Pick-up & Drop'],
     image: 'assets/images/destinations/atok-flower-mountain.png',
     shortDescription:
-      'Highland day trip featuring sea-of-clouds viewpoints, flower farms, and scenic mountain viewpoints.',
+      'Highland day trip featuring sea-of-clouds viewpoints, flower farms, and cool mountain landscapes.',
     fullDescription:
-      'The Atok Day Tour offers an exclusive group experience with roundtrip van transfer from Baguio City. Visit Northern Blossom Flower Farm, 2nd Highest Point Atok, and Atok Half Tunnel with stunning views and photography opportunities.',
+      'The Atok Tour package is a favorite among guests looking for dramatic mountain views and a cooler climate. The route includes scenic highland roads, sunrise-friendly viewpoints, and iconic flower farm stops with enough time for photography.',
     inclusions: [
-      'Roundtrip van transfer (Baguio-Atok-Baguio)',
-      'Atok day tour with all major sites',
-      'Parking fees'
+      'Roundtrip transport from Baguio to Atok',
+      'Driver guide and route timing assistance',
+      'Municipal assistance and parking support',
+      'Basic first-aid support during the trip'
     ],
     exclusions: [
-      'All meals and snacks',
-      'Environmental fees',
-      'All entrance fees'
+      'Meals and coffee stops',
+      'Attraction entrance fees where applicable',
+      'Personal medicine and travel insurance',
+      'Optional activity fees'
     ],
     itinerary: [
-      '04:00 AM - Pickup and departure to Atok from Baguio',
-      '06:00 AM - Arrival at Northern Blossom Flower Farm',
-      '07:30 AM - 2nd Highest Point Atok viewpoint and sunrise photos',
-      '09:00 AM - Atok Half Tunnel exploration',
-      '10:30 AM - Free time for additional photos',
-      '11:30 AM - Break for snacks or light meals',
-      '12:30 PM - Optional Sakura Farm visit',
-      '01:30 PM - Optional Mt Olis or Beacon Hill Eco-Park',
+      '04:30 AM - Early pickup in Baguio',
+      '06:00 AM - Northern Blossom welcome stop and sunrise window',
+      '08:30 AM - Atok viewdeck circuit and farm walks',
+      '11:30 AM - Lunch at a local highland eatery',
+      '01:00 PM - Sakura Park and nearby attraction cluster',
       '03:00 PM - Final scenic stop and group photos',
-      '05:00 PM - Return journey to Baguio',
-      '07:00 PM - Arrival back in Baguio'
+      '05:30 PM - Return to Baguio'
     ],
     reminders: [
-      'Bring layered clothing; early mornings are very cold in Atok',
-      'Wear comfortable trekking shoes for mountain activities',
-      'Bring sunscreen and hats for protection',
-      'Optional Sakura Farm, Mt Olis, and Beacon Hill Eco-Park require additional arrangements'
+      'Bring layered clothing; mornings can be very cold.',
+      'Departure is early to maximize sea-of-clouds chances.',
+      'Roads are mountainous; motion-sickness medicine is recommended if needed.'
     ],
   },
   {
