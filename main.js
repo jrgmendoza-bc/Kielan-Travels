@@ -88,43 +88,198 @@ const PACKAGE_DATA = [
     id: 'sagada-tour',
     title: 'Sagada Tour',
     location: 'Sagada, Mountain Province',
-    durationLabel: '2 Days / 1 Night',
+    durationLabel: '2 Days / 1 Night - 3 Days / 2 Nights',
     durationType: '2d1n',
-    category: '2 Days / 1 Night',
-    price: 4899,
-    priceLabel: 'PHP 4,899 / pax',
+    category: 'Multiple Options',
+    price: 4299,
+    priceLabel: 'PHP 4,299 - PHP 5,899 / pax',
     pickupOptions: ['Baguio Pick-up & Drop', 'Manila Pick-up & Drop'],
     image: 'assets/images/destinations/sagada-sea-of-clouds.png',
     shortDescription:
-      'A culture and nature escape with caves, viewpoints, and local community experiences in Sagada.',
+      'Choose your perfect Sagada adventure: 3D2N complete tour or 2D1N from Manila/Baguio.',
     fullDescription:
-      'Our Sagada Tour package gives your group a complete 2 Days / 1 Night mountain experience with key destinations paced comfortably. This itinerary blends cultural landmarks, cave adventure opportunities, and scenic sunrise moments with practical travel coordination.',
+      'Our Sagada Tour packages offer flexible options with private accommodation, guide fees included, and complimentary meals. Select your preferred duration and pickup location.',
+    packageOptions: [
+      {
+        id: 'sagada-3d2n',
+        title: '3D2N Sagada Joiners Tour Package',
+        durationLabel: '3 Days / 2 Nights',
+        durationType: '3d2n',
+        price: 5199,
+        priceLabel: 'PHP 5,199 - PHP 5,899 / pax',
+        pickupOption: 'Manila Pick-up & Drop',
+        groupPricing: [
+          'PHP 5,199 per head for group of 3 & above',
+          'PHP 5,399 per head for group of 2',
+          'PHP 5,899 for solo joiner'
+        ],
+        inclusions: [
+          'Roundtrip transfer Sagada Tour with Manila pickup and drop',
+          '2 nights accommodation (Private room for every booking guest)',
+          'Shuttle service to all tour sites',
+          'Registration fees',
+          'All Entrance fees',
+          'Day 2 and 3 complimentary breakfast',
+          'All GUIDE fees: Sumaguing cave, Hanging coffins, St Marys Church, Echo valley, Bomod-ok falls, Marlboro Hill',
+          'Sidetrips: Banaue Arch, Banaue rice terraces viewpoint, Bayyo Viewdeck, Inverted house, Sagada weaving, Philippines highest point in Halsema, Strawberry Farm'
+        ],
+        exclusions: [
+          'Other meals aside from the complimentary breakfast',
+          'Any tour activity fee not in the itinerary'
+        ],
+        itinerary: [
+          'Day 00 08:30 PM - Pick up @ MOA',
+          'Day 00 09:30 PM - Pick up @ SM North',
+          'Day 00 11:00 PM - Pick up Pampanga',
+          'Day 01 06:00 AM - Estimated arrival in Banaue with Breakfast',
+          'Day 01 06:00 AM - Banaue View Point (as seen in the old 1,000 peso bill)',
+          'Day 01 07:30 AM - Departure to Sagada with stopover at Bayyo Viewdeck',
+          'Day 01 10:30 AM - Arrival in Sagada with Inverted House stopover',
+          'Day 01 10:30 AM - Sagada Weaving stopover, check in, freshen up, Lunch',
+          'Day 01 01:30 PM - Sumaguing Spelunking/caving (includes rock climbing, rappelling and swimming)',
+          'Day 01 05:00 PM - Back to hotel, Free Time onwards',
+          'Day 02 04:00 AM - Ride to Marlboro Mountain for sunrise hike',
+          'Day 02 08:30 AM - Breakfast',
+          'Day 02 09:30 AM - Bomod-ok falls with stops at Fedilisan village and rice terraces',
+          'Day 02 01:00 PM - Lunch',
+          'Day 02 02:30 PM - Back to accommodation',
+          'Day 02 03:30 PM - Town Tour: Saint Mary the Virgin Church, Echo Valley, Hanging Coffins',
+          'Day 02 05:30 PM - Free Time onwards for souvenir hunt',
+          'Day 03 07:00 AM - Breakfast',
+          'Day 03 08:00 AM - Check out',
+          'Day 03 08:30 AM - Departure to Baguio',
+          'Day 03 11:00 AM - Lunch along Halsema Road',
+          'Day 03 12:30 PM - Philippine Highest Point visit',
+          'Day 03 02:30 PM - Arrival at Strawberry Farm for picture taking',
+          'Day 03 04:00 PM - Departure from Baguio',
+          'Day 03 10:00 PM - Estimated arrival Manila'
+        ],
+        reminders: [
+          'All fees within our itinerary are included in our tour package',
+          'For exclusive/private tours, we can arrange your tour on your preferred dates',
+          'We also arrange exclusive tours to Ilocos Tricity, Baguio, Baler, Bolinao-100 Islands and other destinations',
+          'Additional services available: Transport Service, Travel Insurance',
+          '*Itinerary is only our guide for the tour, and it can change without prior notice to adapt in any uncontrollable circumstances'
+        ]
+      },
+      {
+        id: 'sagada-2d1n-manila',
+        title: '2D1N Sagada Tour (Manila Pick-up)',
+        durationLabel: '2 Days / 1 Night',
+        durationType: '2d1n',
+        price: 4299,
+        priceLabel: 'PHP 4,299 - PHP 4,999 / pax',
+        pickupOption: 'Manila Pick-up & Drop',
+        groupPricing: [
+          'PHP 4,299 per head for 3pax & more',
+          'PHP 4,499 per head for 2pax',
+          'PHP 4,999 per head for solo'
+        ],
+        inclusions: [
+          'Roundtrip Transfer Manila to Sagada',
+          'Overnight accommodation (private room)',
+          'Shuttle services to all tour sites per itinerary',
+          'Registration fees',
+          'All Entrance fees in Sagada',
+          'Day 2 breakfast',
+          'All Guide Fees: Sumaguing cave spelunking, Hanging coffins, St Marys Church, Echo valley, Marlboro Hills, Blue Soil'
+        ],
+        exclusions: [
+          'Meals not mentioned',
+          'Fees for optional activities like Northern Blossom (Registration: P50/head, Entrance fee: P250/head)',
+          'All fees availed not in our itinerary'
+        ],
+        itinerary: [
+          'Day 00 10:30 PM - Assembly time, Pick up MOA',
+          'Day 01 03:30 AM - Breakfast Baguio, Pick up Baguio',
+          'Day 01 04:00 AM - Departure to Atok',
+          'Day 01 06:00 AM - Arrival in Atok with optional Northern Blossom exploration',
+          'Day 01 07:30 AM - Departure to Sagada',
+          'Day 01 11:00 AM - Arrival in Sagada with picture taking at Inverted house and Sagada weaving',
+          'Day 01 11:00 AM - Lunch and check-in at accommodation',
+          'Day 01 01:30 PM - Town Tour: Saint Mary the Virgin Church, Echo Valley, Hanging Coffins',
+          'Day 01 02:45 PM - Sumaguing Spelunking/caving (includes rock climbing, rappelling and swimming)',
+          'Day 01 05:00 PM - Back to hotel, Free Time onwards',
+          'Day 02 04:00 AM - Ride to Marlboro Mountain for sunrise hike',
+          'Day 02 07:00 AM - Traverse hike to blue soil',
+          'Day 02 10:00 AM - Breakfast',
+          'Day 02 11:00 AM - Check out and departure',
+          'Day 02 12:00 PM - Drop by at Amgeleygey View Deck',
+          'Day 02 12:30 PM - Drop at Philippine Highest Point',
+          'Day 02 01:00 PM - Lunch',
+          'Day 02 05:30 PM - Estimated arrival Baguio',
+          'Day 02 11:30 PM - Estimated arrival Manila'
+        ],
+        reminders: [
+          '100% Guaranteed No Additional Charges Within the Activities in Our Itinerary',
+          'Bring comfortable trekking shoes and layered clothing',
+          'Early departure for sunrise viewing opportunities',
+          '*Itinerary is only our guide for the tour, and it can change without prior notice to adapt in any uncontrollable circumstances'
+        ]
+      },
+      {
+        id: 'sagada-2d1n-baguio',
+        title: '2D1N Sagada Tour (Baguio Pick-up)',
+        durationLabel: '2 Days / 1 Night',
+        durationType: '2d1n',
+        price: 4299,
+        priceLabel: 'PHP 4,299 - PHP 4,999 / pax',
+        pickupOption: 'Baguio Pick-up & Drop',
+        groupPricing: [
+          'PHP 4,299 per head for 3pax & more',
+          'PHP 4,499 per head for 2pax',
+          'PHP 4,999 per head for solo'
+        ],
+        inclusions: [
+          'Roundtrip transfer from Baguio to Sagada (includes fuel, parking fees, driver)',
+          'Transfers to all tour sites per itinerary',
+          '1 night accommodation (Private Rooms)',
+          '2 days 1 night Sagada Tour',
+          'All Guides fees: Town tour package, Hanging Coffins, Marlboro Sunrise, Sumaguing Cave Spelunking',
+          'Registration fees',
+          'All Entrance fees',
+          'Breakfast (day 02)'
+        ],
+        exclusions: [
+          'Meals not mentioned above'
+        ],
+        itinerary: [
+          'Day 01 04:00 AM - Pick up & departure to Atok from Mcdo Insular',
+          'Day 01 06:00 AM - Arrival in Atok with optional Northern Blossom exploration (Registration: P50/head, Entrance fee: P250/head)',
+          'Day 01 07:30 AM - Departure to Sagada',
+          'Day 01 11:00 AM - Arrival in Sagada with picture taking at Inverted house and Sagada weaving',
+          'Day 01 11:00 AM - Lunch and check-in at accommodation',
+          'Day 01 01:30 PM - Town Tour: Saint Mary the Virgin Church, Echo Valley, Hanging Coffins',
+          'Day 01 02:45 PM - Sumaguing Spelunking/caving (includes rock climbing, rappelling and swimming)',
+          'Day 01 05:00 PM - Back to hotel, Free Time onwards',
+          'Day 02 04:00 AM - Ride to Marlboro Mountain for sunrise hike',
+          'Day 02 07:00 AM - Traverse hike to blue soil',
+          'Day 02 10:00 AM - Breakfast',
+          'Day 02 11:00 AM - Check out and departure',
+          'Day 02 12:00 PM - Drop by at Amgeleygey View Deck',
+          'Day 02 12:30 PM - Drop at Philippine Highest Point',
+          'Day 02 01:00 PM - Lunch',
+          'Day 02 05:30 PM - Estimated arrival Baguio'
+        ],
+        reminders: [
+          'Bring comfortable trekking shoes and layered clothing for mountain activities',
+          'Early morning departure for optimal sunrise and sea-of-clouds experience',
+          'Some attractions require local guide dispatch and queue time',
+          '*Itinerary is only our guide for the tour, and it can change without prior notice to adapt in any uncontrollable circumstances'
+        ]
+      }
+    ],
     inclusions: [
-      'Roundtrip transport from Baguio to Sagada',
-      '1-night accommodation (standard room sharing)',
-      'Municipal guide coordination support',
-      'Travel assistance and itinerary pacing'
+      'See selected package details'
     ],
     exclusions: [
-      'Meals and snacks',
-      'Caving gear rentals and optional activity fees',
-      'Eco and municipal fees collected onsite',
-      'Personal travel insurance'
+      'See selected package details'
     ],
     itinerary: [
-      'Day 1 04:00 AM - Pickup and departure from Baguio',
-      'Day 1 10:00 AM - Arrival, orientation, and early lunch',
-      'Day 1 12:00 PM - Hanging Coffins and church heritage area',
-      'Day 1 03:00 PM - Echo Valley and sunset viewpoint',
-      'Day 1 07:00 PM - Dinner and rest at accommodation',
-      'Day 2 05:00 AM - Marlboro Hills sunrise window',
-      'Day 2 09:00 AM - Souvenir and coffee stop',
-      'Day 2 11:00 AM - Return trip to Baguio'
+      'See selected package details'
     ],
     reminders: [
-      'Bring trekking shoes and a rain-ready outer layer.',
-      'Some attractions require local guide dispatch and queue time.',
-      'Signal can be unstable in mountain areas; inform contacts in advance.'
+      'See selected package details'
     ],
   },
   {
@@ -872,19 +1027,37 @@ function initBookingPackageOptions() {
   initBookingPackagePrefill();
 }
 
-function buildDetailsSection(pkg) {
+function buildDetailsSection(pkg, selectedOptionId = null) {
+  // If package has options, select the specified one or the first one by default
+  const activeOption = pkg.packageOptions && pkg.packageOptions.length > 0
+    ? (selectedOptionId 
+        ? pkg.packageOptions.find(opt => opt.id === selectedOptionId) 
+        : pkg.packageOptions[0]
+      ) || pkg.packageOptions[0]
+    : null;
+  
+  const displayPkg = activeOption || pkg;
+  
   return `
     <article class="details-banner reveal">
-      <img src="${escapeHtml(pkg.image)}" alt="${escapeHtml(pkg.title)} banner image" loading="eager" decoding="async" />
+      <img src="${escapeHtml(displayPkg.image || pkg.image)}" alt="${escapeHtml(displayPkg.title)} banner image" loading="eager" decoding="async" />
       <div class="details-banner-content">
         <p class="eyebrow">Package Overview</p>
-        <h1>${escapeHtml(pkg.title)}</h1>
-        <p>${escapeHtml(pkg.fullDescription)}</p>
+        <h1>${escapeHtml(displayPkg.title)}</h1>
+        <p>${escapeHtml(displayPkg.fullDescription || pkg.fullDescription)}</p>
         <div class="details-top-meta">
-          <span><strong>Package type:</strong> ${escapeHtml(pkg.category)}</span>
-          <span><strong>Duration:</strong> ${escapeHtml(pkg.durationLabel)}</span>
-          <span><strong>Rate:</strong> ${escapeHtml(pkg.priceLabel)}</span>
+          ${!pkg.packageOptions ? `<span><strong>Package type:</strong> ${escapeHtml(displayPkg.category)}</span>` : ''}
+          <span><strong>Duration:</strong> ${escapeHtml(displayPkg.durationLabel)}</span>
+          <span><strong>Rate:</strong> ${escapeHtml(displayPkg.priceLabel)}</span>
         </div>
+        ${displayPkg.groupPricing ? `
+        <div class="pricing-breakdown reveal" style="margin-top: 15px; padding: 15px; background: #f9f9f9; border-radius: 4px;">
+          <h4 style="margin: 0 0 10px 0; font-size: 14px;">Group Pricing:</h4>
+          <ul style="margin: 0; padding-left: 20px; font-size: 14px;">
+            ${displayPkg.groupPricing.map(price => `<li>${escapeHtml(price)}</li>`).join('')}
+          </ul>
+        </div>
+        ` : ''}
       </div>
     </article>
 
@@ -893,29 +1066,29 @@ function buildDetailsSection(pkg) {
         <article class="details-card reveal">
           <h2>Package Inclusions</h2>
           <ul>
-            ${pkg.inclusions.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+            ${displayPkg.inclusions.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
           </ul>
         </article>
 
         <article class="details-card reveal">
           <h2>Package Exclusions</h2>
           <ul>
-            ${pkg.exclusions.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+            ${displayPkg.exclusions.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
           </ul>
         </article>
 
         <article class="details-card reveal">
-          <h2>Sites to Visit</h2>
+          <h2>${activeOption ? 'Itinerary' : 'Sites to Visit'}</h2>
           <ul>
-            ${pkg.itinerary.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+            ${displayPkg.itinerary.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
           </ul>
         </article>
 
         <article class="details-card reveal">
           <h2>Important Notes</h2>
           <ul>
-            ${pkg.reminders.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
-            <li>All site visits are planned to fit the itinerary, but may change due to traffic, weather, or guest timing.</li>
+            ${displayPkg.reminders.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+            ${!activeOption ? `<li>All site visits are planned to fit the itinerary, but may change due to traffic, weather, or guest timing.</li>` : ''}
           </ul>
         </article>
       </div>
@@ -970,12 +1143,52 @@ function renderPackageDetails() {
     return;
   }
 
-  document.title = `${selectedPackage.title} | Kielan Travels`;
-  root.innerHTML = buildDetailsSection(selectedPackage);
+  const activeOption = selectedPackage.packageOptions?.[0] || selectedPackage;
+  document.title = `${activeOption.title} | Kielan Travels`;
+  
+  // Build the dropdown selector if package has options
+  let selectorMarkup = '';
+  if (selectedPackage.packageOptions && selectedPackage.packageOptions.length > 0) {
+    selectorMarkup = `
+    <div class="package-option-selector reveal" style="margin-bottom: 30px; padding: 20px; background: #f5f5f5; border-radius: 8px;">
+      <label for="package-option-select" style="display: block; margin-bottom: 10px; font-weight: 600; font-size: 16px;">Choose Your Package Type:</label>
+      <select id="package-option-select" class="package-option-select" style="width: 100%; max-width: 500px; padding: 12px; font-size: 16px; border: 2px solid #0066cc; border-radius: 4px; cursor: pointer; font-weight: 500;">
+        ${selectedPackage.packageOptions.map((opt, idx) => `<option value="${escapeHtml(opt.id)}" ${idx === 0 ? 'selected' : ''}>${escapeHtml(opt.title)}</option>`).join('')}
+      </select>
+    </div>
+    `;
+  }
+  
+  root.innerHTML = selectorMarkup + buildDetailsSection(selectedPackage);
   renderReviewCards('#package-review-grid', { limit: 3 });
 
   if (typeof window.observeRevealElements === 'function') {
     window.observeRevealElements();
+  }
+  
+  // Attach dropdown handler if package has options
+  if (selectedPackage.packageOptions && selectedPackage.packageOptions.length > 0) {
+    const selector = document.querySelector('#package-option-select');
+    if (selector) {
+      selector.addEventListener('change', (event) => {
+        const selectedOptionId = event.target.value;
+        const banner = root.querySelector('.details-banner');
+        const detailsGrid = root.querySelector('.details-grid');
+        const reviewsSection = root.querySelector('.section-inner:last-of-type');
+        
+        if (banner) banner.remove();
+        if (detailsGrid) detailsGrid.remove();
+        if (reviewsSection) reviewsSection.remove();
+        
+        const newContent = buildDetailsSection(selectedPackage, selectedOptionId);
+        root.insertAdjacentHTML('beforeend', newContent);
+        renderReviewCards('#package-review-grid', { limit: 3 });
+        
+        if (typeof window.observeRevealElements === 'function') {
+          window.observeRevealElements();
+        }
+      });
+    }
   }
 }
 

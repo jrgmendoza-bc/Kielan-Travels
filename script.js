@@ -125,6 +125,34 @@ function initBookingPackagePrefill() {
   }
 }
 
+function initBookingPackageOptions() {
+  const packageField = document.querySelector('#booking-package');
+  const packageOptionField = document.querySelector('#booking-package-option');
+  const packageOptionLabel = document.querySelector('#booking-package-option-label');
+
+  if (!packageField || !packageOptionField) {
+    return;
+  }
+
+  function updatePackageOptions() {
+    const selectedPackage = packageField.value;
+    
+    if (selectedPackage === 'sagada-tour') {
+      packageOptionField.hidden = false;
+      packageOptionLabel.hidden = false;
+      packageOptionField.setAttribute('required', 'required');
+    } else {
+      packageOptionField.hidden = true;
+      packageOptionLabel.hidden = true;
+      packageOptionField.removeAttribute('required');
+      packageOptionField.value = '';
+    }
+  }
+
+  packageField.addEventListener('change', updatePackageOptions);
+  updatePackageOptions(); // Run on page load in case there's a pre-selected value
+}
+
 function initLeaveReviewForm() {
   const reviewForm = document.querySelector('#leave-review-form');
   const feedback = document.querySelector('#review-form-feedback');
